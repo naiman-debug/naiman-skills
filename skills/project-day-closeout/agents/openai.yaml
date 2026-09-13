@@ -1,0 +1,4 @@
+interface:
+  display_name: "打完收工"
+  short_description: "同步已有责任文件，核对目录，并在完整收工时完成已授权的本地 Git 存档。"
+  default_prompt: "请使用 $project-day-closeout 完整收工：基于现有 README、责任文件和本轮变更确定范围，更新应更新的记录、核对受影响目录，并对归属明确且已验证的文件完成本地 Git 提交；不推送、不删除、不搬移、不夹带未知暂存。"
