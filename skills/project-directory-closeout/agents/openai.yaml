@@ -1,0 +1,4 @@
+interface:
+  display_name: "项目目录收口"
+  short_description: "核对具名目录、入口与索引影响，并在授权范围内完成最小整理。"
+  default_prompt: "请使用 $project-directory-closeout 检查这个具名目录：读取已有 README、项目规则和父级入口，说明当前入口、索引影响、应保留或待确认的文件；不要扫描无关目录、删除或搬移未获明确授权的文件。"
