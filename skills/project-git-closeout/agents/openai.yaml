@@ -1,0 +1,4 @@
+interface:
+  display_name: "Git 收口"
+  short_description: "基于收工 readiness，对已授权且归属明确的文件完成本地分批提交。"
+  default_prompt: "请使用 $project-git-closeout 处理本次完整收工的 Git 批次：只提交 readiness 已准备好、归属明确且已验证的具名文件；不推送、不夹带未知暂存、不删除、不搬移。"
