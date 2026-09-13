@@ -1,0 +1,4 @@
+interface:
+  display_name: "项目初始化与标准化"
+  short_description: "整理项目入口、目录职责、重要材料、来源和索引关系。"
+  default_prompt: "请使用 $project-startup-standardization，根据已有入口、规则和本轮材料确定最小范围；空目录从用户已确认的目的开始。在授权内建立或修订项目入口、目录职责、重要材料的来源和索引关系，未知内容不要编造。"
