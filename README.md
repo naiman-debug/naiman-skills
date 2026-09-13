@@ -1,73 +1,67 @@
 # naiman-skills
 
-这是 Naiman 的个人技能库，分享我为解决自己与 AI 协作时遇到的问题而制作的技能。
+[中文](README.zh-CN.md) · [Installation & Updates (Chinese)](docs/安装与更新.md) · [GitHub Repository](https://github.com/naiman-debug/naiman-skills) · [Releases](https://github.com/naiman-debug/naiman-skills/releases) · [Contributing (Chinese)](CONTRIBUTING.md) · [Project Record (Chinese)](docs/项目记录.md)
 
-[English](README.en.md) · [安装与更新](docs/安装与更新.md) · [GitHub 仓库](https://github.com/naiman-debug/naiman-skills) · [Releases](https://github.com/naiman-debug/naiman-skills/releases) · [参与贡献](CONTRIBUTING.md) · [项目记录](docs/项目记录.md)
+This is Naiman's personal AI skills repository, sharing practical skills I made to solve real problems when working with AI on projects. This initial release is intended for people using Codex with local file access. Please note that the underlying skill definitions, templates, and per-skill documentation files remain primarily in Chinese, though you can ask Codex to converse and respond in English or your preferred language.
 
-## 技能 1：项目建档
+## Skill 1: Project Startup Standardization
 
-刚建空目录时，我经常不知道各类文件该往哪里放，也拿不准到底什么时候该开始规划结构。随着零散的想法、需求、参考资料和演示文件陆续加入，如果事先没有约定，AI 介入后就很容易分不清该读取哪份资料、又该把新内容写到哪里。
+When starting in an empty directory, I often struggle with where to place different files and when to formalize a project layout. As scattered ideas, draft requirements, reference notes, and demo files are added without prior conventions, AI assistants easily lose track of which reference materials to read and where new content should be written. This skill inspects existing project assets, respects your current conventions, and clarifies directory purposes, primary entry points, and reference locations along with clear maintenance guidelines. Whether starting fresh or introducing new materials mid-project, it reorganizes only the affected parts without tearing down your existing structure. Turning this workflow into a skill ensures both you and the AI immediately know where to begin, where files belong, and what indexes to update whenever directory layouts change.
 
-这个技能会从现有材料出发，沿用项目已有的规则，梳理出各目录的实际用途、项目入口、重要材料的位置和来源，并明确后续的维护方式。无论是项目刚起步，还是中途加入新材料、微调目录，它都只针对受影响的部分做必要整理，不需要每次推翻重来。把它固定成技能，就是为了在目录结构发生变化时，能随时让自己和 AI 知道从哪里开始、文件放在哪里、改完以后还要更新什么。
+## Skill 2: Project Day Closeout (Wrap-up)
 
-## 技能 2：项目收工（打完收工）
+Every time I finish a working session, related files have changed, but accompanying documentation, indexes, progress notes, and next steps rarely get updated at the same time. Returning to the project later, I used to waste time searching through earlier results just to recall what was completed and what was still untouched. This skill steps through recent work during wrap-up, updates documentation and indexes, and logs completed tasks alongside concrete next actions. With your explicit confirmation, it can also create a clean local Git commit for the task's stable files without pushing upstream or mixing in unrelated changes. Packaging this as a skill provides a clear handover record for your next session, saving you and the AI from reconstructing project state from scratch.
 
-每次一项工作做完，虽然相关文件已经修改，但配套的说明、索引、当前进度和下一步计划往往没能同步更新。等到下次重新打开项目，我又得重新翻找上一轮的结果，逐一确认哪些已经做完、哪些还没开始。
+## Skill 3: Bubugao (Step-by-Step)
 
-这个技能会在准备收尾时核对这次做了什么，同步相关说明、索引和进度，明确已完成项和接下来的具体动作。在得到我的明确授权与要求后，它还可以把本任务相关的稳定文件做一次本地 Git 提交，不默认推送，也不混入无关改动。把它做成技能，是想让每次工作结束后都留下清晰的交接记录，方便下次自己或 AI 接着做，不用再从一堆文件里找进度。
+During technical discussions, answering a few questions does not mean key decisions have been thoroughly thought through: finding what is still missing and deciding what to discuss next usually lacks clear guidance. Existing terminology documents in a repository might also belong to an older phase or a different domain, risking confusing legacy assumptions with new requirements if referenced blindly. Bubugao is a modification of Matt Pocock's [grill-with-docs](https://github.com/mattpocock/skills/tree/3cca18b368ae95cdbdebbff572ccafa662551015/skills/engineering/grill-with-docs), retaining its step-by-step interviewing, terminology clarification, and decision logging. It adds only two capabilities: a **Road** discussion route that tracks settled points, key gaps, immediate next priorities, and deferrable details; and a **Context suitability check** to verify whether existing documentation is relevant and current before using it. Bubugao keeps discussions moving in a clear direction, but it does not guarantee a complete requirements document and does not automatically start implementation.
 
-## 技能 3：步步高
+## Skills List
 
-讨论一个方案时，回答了几个问题，并不意味着已经把关键事情想清楚：还缺什么、下一步该聊什么，往往没有明确的提示。项目里虽然有术语文档，也可能属于旧阶段或另一个业务范围，直接接着写容易把新旧理解混在一起。
+- [Skill 1: Project Startup Standardization](skills/project-startup-standardization/README.md)
+- [Skill 2: Project Day Closeout](skills/project-day-closeout/README.md)
+- [Skill 3: Bubugao](skills/bubugao/README.md)
 
-步步高基于 Matt Pocock 的 [grill-with-docs](https://github.com/mattpocock/skills/tree/3cca18b368ae95cdbdebbff572ccafa662551015/skills/engineering/grill-with-docs) 修改，保留原版逐步访谈、澄清术语和记录重要决定的方式。在此基础上只增加两项能力：**Road 讨论路线**帮助看清已明确内容、关键缺口、下一步和可后续处理的细节；**Context 适用性检查**先核实已有术语文档是否属于本次讨论、仍然有效，再说明如何使用及实际记录位置。它帮助讨论有方向地继续，但不保证保存完整需求，也不自动进入开发。
+## Quick Start
 
-## 技能列表
-
-- [技能 1：项目建档](skills/project-startup-standardization/README.md)
-- [技能 2：项目收工（打完收工）](skills/project-day-closeout/README.md)
-- [技能 3：步步高](skills/bubugao/README.md)
-
-## 先试一次
-
-按[教程](docs/安装与更新.md)安装后，在练习项目中向 Codex 输入：
+After installing according to the [installation guide](docs/安装与更新.md), try these prompts in a practice project with Codex:
 
 ```text
-使用 $project-startup-standardization，先看看这个项目有哪些材料，
-建议最少需要的目录、入口和索引。这次先只读，不创建文件。
+Use $project-startup-standardization to inspect project materials and suggest
+minimal directories, entry points, and indexes. Read-only; do not create files.
 ```
 
 ```text
-使用 $project-day-closeout，只检查今天的工作和接续位置，
-不修改文件，不暂存，不提交。告诉我哪些已完成，哪些还缺。
+Use $project-day-closeout to check today's work and resume position.
+Do not modify files or Git. List completed items and missing gaps.
 ```
 
-确认需要实际保存本段工作时，再说：
+When you are ready to save the session's work:
 
 ```text
-使用 $project-day-closeout 完整收工。
-仅整理和提交本次任务的成果，保留其他人的改动，不推送远程。
+Use $project-day-closeout for a full closeout.
+Organize and commit this task's deliverables, preserve others' edits, and do not push.
 ```
 
-**完整收工可能创建本地 Git 提交。** 只检查与只准备模式不会提交；Git 提交也不等于功能已验收。技能不默认删除、迁移文件，不自动推送，不创建定时任务。
+**Full closeout can create local Git commits.** Read-only audit and preparation modes will never commit; Git commits do not imply functional acceptance. The skills never delete or move files by default, never push automatically, and never schedule automated background jobs.
 
-步步高的最短调用示例：
+Shortest prompt for Bubugao:
 
 ```text
-使用 $bubugao 帮我讨论这个方案，先说明还有哪些关键问题，
-并检查已有 Context 是否适用。这次只讨论，不写文件。
+Use $bubugao to discuss this proposal. Outline key questions
+and verify if existing Context is suitable. Discuss only; do not write files.
 ```
 
-## 下载和更新
+## Download and Installation
 
-首个预发布版 [v0.1.0 已上线](https://github.com/naiman-debug/naiman-skills/releases/tag/v0.1.0)。打开版本页，在 Assets 中下载 **Source code (zip)**，按教程复制完整技能目录。三个主技能及两个必要辅助技能都在包内；完整说明见 [RELEASE_NOTES.md](RELEASE_NOTES.md)。这是供试用的预发布版，已验证范围和限制见[项目记录](docs/项目记录.md)。
+The first pre-release [v0.1.0 is available](https://github.com/naiman-debug/naiman-skills/releases/tag/v0.1.0). Visit the release page, download **Source code (zip)** under Assets, and copy the required complete skill directories into your user skills directory (`~/.agents/skills`) or project `.agents/skills/`. Keep the downloaded root `LICENSE` file together with the package. The complete collection comprises five folders: the three main skills plus two required closeout helpers (`project-directory-closeout` and `project-git-closeout`). See [RELEASE_NOTES.md](RELEASE_NOTES.md) for full release details. Never copy the repository's root `AGENTS.md` into your workspace.
 
-发布后，GitHub 新版本与电脑里的安装副本分别更新：下载新版不等于安装新版，`git pull` 也不会更新另外复制出去的技能。安装、同名冲突、版本检查、升级和回退步骤见[安装与更新](docs/安装与更新.md)。
+If a folder with the same name already exists in your destination directory, stop and compare it first. Avoid merging files between different versions.
 
-## 项目怎样维护
+Post-release verification confirmed that the downloaded v0.1.0 ZIP matches the reviewed 58-file package, and desktop tasks successfully performed read-only checks across explicit paths. Standalone CLI execution, nested automatic discovery, and other operating systems remain unverified; see the [project record](docs/项目记录.md) for full validation scope and remaining limits.
 
-公开版本在本仓库维护，再按需安装到个人环境。不要把整个用户级技能目录、私人项目材料、聊天记录或真实凭据提交进来。
+## Updates, Rollback, and Maintenance
 
-新增技能、修改现有技能、验证、发布与 PR 的具体步骤在[贡献指南](CONTRIBUTING.md)。当前建设进度、已确认范围和验证限制在[项目记录](docs/项目记录.md)。
+GitHub releases do not update installed copies automatically; all updates must be performed manually. When updating, download the chosen release archive, move your existing skill folders to a backup location outside all skill-discovery directories to preserve your local edits, and replace the complete set of folders. Do not merge old and new files together. To roll back, restore the complete previous folder set from backup. Updating or removing a skill does not alter files or commits it previously created.
 
-本仓库扩展采用 [MIT 许可证](LICENSE)，版权署名为 naiman-debug。步步高随附的上游内容保留 Matt Pocock 的 [MIT 许可](skills/bubugao/LICENSE.upstream)。欢迎通过 [Issues](https://github.com/naiman-debug/naiman-skills/issues) 报告问题，或通过 [Pull requests](https://github.com/naiman-debug/naiman-skills/pulls) 提交改进。
+Public versions are maintained in this repository before being installed in personal environments. For development guidelines, see [CONTRIBUTING.md](CONTRIBUTING.md). Our custom extensions are licensed under the [MIT License](LICENSE) (copyright naiman-debug), while bundled upstream Bubugao content retains [Matt Pocock's MIT License](skills/bubugao/LICENSE.upstream). Please report issues via [Issues](https://github.com/naiman-debug/naiman-skills/issues) or submit improvements via [Pull requests](https://github.com/naiman-debug/naiman-skills/pulls).
