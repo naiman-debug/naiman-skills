@@ -60,7 +60,7 @@
 
 ## 下载和更新
 
-首版采用下载固定 Release、复制完整技能目录的方式。公开仓库为 [naiman-debug/naiman-skills](https://github.com/naiman-debug/naiman-skills)，请从 [Releases](https://github.com/naiman-debug/naiman-skills/releases) 选择实际出现的固定版本下载。`0.1.0` 的预发布说明见 [RELEASE_NOTES.md](RELEASE_NOTES.md)，实际发布状态以版本页为准；版本页尚无该版本时，不要把候选源码或一直变化的主分支当成已发布版本。
+首个预发布版 [v0.1.0 已上线](https://github.com/naiman-debug/naiman-skills/releases/tag/v0.1.0)。打开版本页，在 Assets 中下载 **Source code (zip)**，按教程复制完整技能目录。三个主技能及两个必要辅助技能都在包内；完整说明见 [RELEASE_NOTES.md](RELEASE_NOTES.md)。这是供试用的预发布版，已验证范围和限制见[项目记录](docs/项目记录.md)。
 
 发布后，GitHub 新版本与电脑里的安装副本分别更新：下载新版不等于安装新版，`git pull` 也不会更新另外复制出去的技能。安装、同名冲突、版本检查、升级和回退步骤见[安装与更新](docs/安装与更新.md)。
 

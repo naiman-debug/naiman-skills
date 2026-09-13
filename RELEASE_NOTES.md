@@ -1,6 +1,6 @@
 # 0.1.0 预发布说明
 
-这是 `0.1.0` 的预发布说明。公开仓库为 [naiman-debug/naiman-skills](https://github.com/naiman-debug/naiman-skills)，实际可下载状态以 [Releases](https://github.com/naiman-debug/naiman-skills/releases) 的版本页为准；只有版本页出现相应条目才表示可以从GitHub下载。
+[v0.1.0预发布版已上线](https://github.com/naiman-debug/naiman-skills/releases/tag/v0.1.0)。这是该版本的更新说明。公开仓库为 [naiman-debug/naiman-skills](https://github.com/naiman-debug/naiman-skills)，实际可下载状态以 [Releases](https://github.com/naiman-debug/naiman-skills/releases) 的版本页为准；只有版本页出现相应条目才表示可以从GitHub下载。
 
 ## 本次提供
 
@@ -21,9 +21,9 @@
 - 先在练习目录只读试用，明确写入范围后再运行实际整理。
 - 项目收工可能创建本地Git提交，不默认推送；缺依赖或未知暂存项会阻止受影响阶段。
 - 步步高不保证保存完整需求，也不自动实现方案。
-- 已验证的范围包括五个选定入口的干净宿主发现、桌面新任务对候选路径的显式读取和三个主技能调用及独立复核，以及整套更新回退的文件层和后续调用。独立 CLI、当前嵌套路径的自动发现、其他操作系统和从实际 Release 下载后的独立试装尚未验证；后者只能在版本页出现后进行。具体范围见[项目记录](docs/项目记录.md)。
-- 本说明描述候选内容与已知边界，不表示 Release 已创建，也不表示发布后下载验收已通过。
+- 已验证的范围包括五个选定入口的干净宿主发现、桌面新任务对候选路径的显式读取和三个主技能调用及独立复核，以及整套更新回退的文件层和后续调用。独立 CLI、当前嵌套路径的自动发现、其他操作系统尚未验证。发布后已从实际ZIP下载并核对58文件一致，独立桌面任务在单独试装目录完成三个主技能显式路径只读调用，练习文件保持不变。具体范围见[项目记录](docs/项目记录.md)。
+- 版本标签固定发布时的审核内容；本文件在主分支补充实际发布后验收状态，不移动v0.1.0标签。
 
 ## English
 
-These are the 0.1.0 pre-release notes. Check [Releases](https://github.com/naiman-debug/naiman-skills/releases) for the actual release status. The package covers three user-facing skills: project startup, day closeout, and Bubugao; install all five listed directories for the complete set. Bubugao preserves Matt Pocock's upstream attribution and MIT license, adding only a discussion Road and Context suitability check. Updates are manual; a GitHub release does not update installed copies. This note does not claim that a Release or post-release installation acceptance has completed.
+These are the 0.1.0 pre-release notes. Check [Releases](https://github.com/naiman-debug/naiman-skills/releases) for the actual release status. The package covers three user-facing skills: project startup, day closeout, and Bubugao; install all five listed directories for the complete set. Bubugao preserves Matt Pocock's upstream attribution and MIT license, adding only a discussion Road and Context suitability check. Updates are manual; a GitHub release does not update installed copies. The v0.1.0 pre-release is now published. Its downloaded ZIP matches the reviewed package; an independent desktop task installed all five folders and made explicit-path, read-only calls to the three main skills. This does not establish automatic discovery or cross-platform compatibility.
