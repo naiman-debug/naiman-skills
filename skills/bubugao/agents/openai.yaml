@@ -1,0 +1,6 @@
+interface:
+  display_name: "步步高"
+  short_description: "沿用原版访谈与术语决策记录，增加讨论路线和现有术语文档适用性检查"
+  default_prompt: "使用 $bubugao 帮我逐步讨论这个方案，说明剩余关键问题，并检查已有 Context 是否适用。"
+policy:
+  allow_implicit_invocation: false
