@@ -1,0 +1,14 @@
+# 本仓库的公开源文件在 skills/；本地安装和个人配置不进入版本管理。
+.agents/
+.claude/
+.codex/
+.env
+.env.*
+!.env.example
+__pycache__/
+*.pyc
+.DS_Store
+Thumbs.db
+
+# 测试产物应放系统临时目录；此处仅防误放。
+.test-output/
