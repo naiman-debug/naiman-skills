@@ -1,0 +1,198 @@
+{
+  "format": "naiman.readme-card",
+  "format_version": 1,
+  "language": "zh-CN",
+  "theme": {
+    "page": "#ffffff",
+    "text": "#202c35",
+    "card": "#f7f7f2",
+    "accent": "#43835a",
+    "muted": "#53685b",
+    "row_colors": [
+      "#e9f2e7",
+      "#edf0f9",
+      "#f3edf6"
+    ],
+    "radius": 12,
+    "typography": {
+      "font_family": "\"Microsoft YaHei\", \"PingFang SC\", \"Noto Sans CJK SC\", sans-serif",
+      "body_size": 16,
+      "body_weight": 400,
+      "heading_size": 24,
+      "heading_weight": 600,
+      "card_title_size": 16,
+      "card_title_weight": 600,
+      "comparison_size": 16,
+      "label_size": 16,
+      "body_line_height": 1.75,
+      "card_text_size": 16
+    },
+    "layout": {
+      "page_max_width": 900,
+      "card_padding": 24,
+      "comparison_row_height": 40,
+      "card_radius": 12
+    }
+  },
+  "blocks": [
+    {
+      "type": "heading",
+      "text": "项目收工"
+    },
+    {
+      "type": "link_list",
+      "items": [
+        {
+          "label": "English",
+          "href": "README.en.md",
+          "preview_href": "../../docs/previews/project-day-closeout.en.html"
+        },
+        {
+          "label": "中文",
+          "href": "README.md",
+          "preview_href": "../../docs/previews/project-day-closeout.html"
+        }
+      ]
+    },
+    {
+      "type": "comparison_card",
+      "label": "会话交接",
+      "badge": {
+        "text": "前后对比"
+      },
+      "title": "下次打开，知道从哪里接着做",
+      "subtitle": "虚构示意，实际效果取决于已有材料与具体限制",
+      "columns": {
+        "before": "直接关掉窗口",
+        "after": "运行项目收工"
+      },
+      "rows": [
+        {
+          "before": "只在对话里说做完，文件说明未同步",
+          "after": "把新结论写回已有说明，记录下次接续",
+          "icon": "📑",
+          "tone": 0
+        },
+        {
+          "before": "多处改动混杂，分不清哪些经过验证",
+          "after": "核对实际改动与索引，理清未完成项",
+          "icon": "🧭",
+          "tone": 1
+        },
+        {
+          "before": "直接全选提交容易误带其他临时文件",
+          "after": "仅本地提交本次检查通过的文件不推送",
+          "icon": "📦",
+          "tone": 2
+        }
+      ],
+      "footer": "若项目无 Git 仓库则只同步文档并如实提示无代码存档。"
+    },
+    {
+      "type": "section",
+      "title": "为什么需要收工",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "平时做完功能或整理完资料，对话里的讨论虽然完整，但说明文档和文件索引往往还没同步。隔天重新开工、换电脑或换一个 AI 助手时，经常需要从头翻查改动并重新解释。"
+        },
+        {
+          "type": "paragraph",
+          "text": "项目收工在现有进度记录、目录索引和实际文件之间核对，找出改好与未登记的内容，把已完成事项、未决遗留与下一步明确动作写回已有文档，方便随时接续。"
+        }
+      ]
+    },
+    {
+      "type": "section",
+      "title": "使用示例（虚构示意）",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "以虚构的书单项目为例：刚刚在 app.py 修复了标题显示，但 README.md 中的进度依然停留在上一阶段，工作区还放着他人的 draft.txt。"
+        },
+        {
+          "type": "paragraph",
+          "text": "当你明确要求完整收工且各项检查通过后，它会在已有 README.md 中同步修复进展与下一步，并只把本次改好的 app.py 和 README.md 做本地提交。普通检查或只记录时不会执行提交，工作区里其他人留下的 draft.txt 也会原样保留不受影响。"
+        }
+      ]
+    },
+    {
+      "type": "section",
+      "title": "日常怎么用",
+      "blocks": [
+        {
+          "type": "list",
+          "items": [
+            "使用项目收工先检查今天的进度与遗漏，只核对改动与文档差异，不修改文件也不做提交。",
+            "使用项目收工更新已有进度与下次接续，把今天的修改记录到文档中，但先不做 Git 提交。",
+            "使用项目收工打完收工，同步文档后把本次已检查好的文件做本地 Git 提交，不要推送到远程。"
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "若助手未识别中文指令，可输入 $project-day-closeout 兜底调用。"
+        },
+        {
+          "type": "paragraph",
+          "text": "完整收工可以包含本任务的本地提交，但依然遵循只记录、不要Git等已有要求；归属不明或检查未通过的部分会暂缓提交并说明原因。记录更新、Git提交与业务完成会分别报告，绝不把代码提交当成业务验收。"
+        }
+      ]
+    },
+    {
+      "type": "section",
+      "title": "使用前提与执行结果",
+      "blocks": [
+        {
+          "type": "list",
+          "items": [
+            "完整收工依赖同版本的三目录套件。平时只需调用主技能；若缺少辅助技能会说明受影响步骤且不私下补装，不能报告完整收工已完成。",
+            "当项目规则、目录索引或可读取资料不完整时，会结合已有说明与当前请求继续核对，但会明确标明未覆盖范围；受限的部分核对不能当作已找全遗漏，也不能宣称已完整收工。",
+            "无 Git 仓库时依然支持文档接续，但会说明未做 Git 存档，绝不私自初始化或配置仓库。",
+            "执行时不主动搬移或删除文件，不向远程推送，也不夹带无关暂存项。",
+            "收工后会汇报文档更新位置，以及实际的本地提交号或未提交原因。"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "section",
+      "title": "安装方法",
+      "blocks": [
+        {
+          "type": "copy_field",
+          "label": "复制安装请求",
+          "value": "请先阅读安装指南 https://github.com/naiman-debug/naiman-skills/blob/main/docs/%E5%AE%89%E8%A3%85%E4%B8%8E%E6%9B%B4%E6%96%B0.md ，从 https://github.com/naiman-debug/naiman-skills/releases/tag/v0.1.0 下载 v0.1.0 源码包，将 project-day-closeout、project-directory-closeout 和 project-git-closeout 三个完整目录安装到练习项目的 .agents/skills/ 下。若有同名请先停止比对；保留全部文件与根目录 LICENSE，切勿复制根目录 AGENTS.md。安装后报告读取路径与版本，并做首次只读检查。"
+        }
+      ]
+    },
+    {
+      "type": "section",
+      "title": "English Summary",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Project Day Closeout helps developers wrap up a working session by synchronizing progress notes, indexes, and next steps in existing documentation. It provides three operational modes: read-only audit, documentation update, and full local closeout. When full closeout is requested, it creates scoped local Git commits for verified files from the current task without pushing upstream. If dependencies, project rules, or Git permissions are missing, it proceeds with partial updates, clearly lists affected stages, and explains any withheld actions. Documentation updates, Git commits, and business completions remain strictly separated and reported independently."
+        }
+      ]
+    },
+    {
+      "type": "section",
+      "title": "相关资料",
+      "blocks": [
+        {
+          "type": "link_list",
+          "items": [
+            {
+              "label": "安装与更新指南",
+              "href": "../../docs/安装与更新.md"
+            },
+            {
+              "label": "技能规范详情（SKILL.md）",
+              "href": "SKILL.md"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

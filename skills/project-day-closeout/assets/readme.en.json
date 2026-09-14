@@ -1,0 +1,188 @@
+{
+  "format": "naiman.readme-card",
+  "format_version": 1,
+  "language": "en",
+  "theme": {
+    "page": "#ffffff",
+    "text": "#202c35",
+    "card": "#f7f7f2",
+    "accent": "#43835a",
+    "muted": "#53685b",
+    "row_colors": [
+      "#e9f2e7",
+      "#edf0f9",
+      "#f3edf6"
+    ],
+    "radius": 12,
+    "typography": {
+      "font_family": "\"Microsoft YaHei\", \"PingFang SC\", \"Noto Sans CJK SC\", sans-serif",
+      "body_size": 16,
+      "body_weight": 400,
+      "heading_size": 24,
+      "heading_weight": 600,
+      "card_title_size": 16,
+      "card_title_weight": 600,
+      "comparison_size": 16,
+      "label_size": 16,
+      "body_line_height": 1.75,
+      "card_text_size": 16
+    },
+    "layout": {
+      "page_max_width": 900,
+      "card_padding": 24,
+      "comparison_row_height": 40,
+      "card_radius": 12
+    }
+  },
+  "blocks": [
+    {
+      "type": "heading",
+      "text": "Project Closeout"
+    },
+    {
+      "type": "link_list",
+      "items": [
+        {
+          "label": "English",
+          "href": "README.en.md",
+          "preview_href": "../../docs/previews/project-day-closeout.en.html"
+        },
+        {
+          "label": "中文",
+          "href": "README.md",
+          "preview_href": "../../docs/previews/project-day-closeout.html"
+        }
+      ]
+    },
+    {
+      "type": "comparison_card",
+      "label": "Session Handover",
+      "badge": {
+        "text": "Before & After"
+      },
+      "title": "Pick up right where you left off next time",
+      "subtitle": "Fictional illustration; actual results depend on existing documentation and specific constraints",
+      "columns": {
+        "before": "Closing the window directly",
+        "after": "Running Project Closeout"
+      },
+      "rows": [
+        {
+          "before": "Task marked done only in chat; documentation remains out of sync",
+          "after": "Writes conclusions back to existing docs and records next steps",
+          "icon": "📑",
+          "tone": 0
+        },
+        {
+          "before": "Multiple changes mixed together with unclear verification status",
+          "after": "Audits file changes against indexes to clarify pending items",
+          "icon": "🧭",
+          "tone": 1
+        },
+        {
+          "before": "Staging all files risks accidentally committing untracked scratch files",
+          "after": "Creates a local commit only for verified files without pushing",
+          "icon": "📦",
+          "tone": 2
+        }
+      ],
+      "footer": "If the project has no Git repository, it only synchronizes documentation and clearly reports that no local Git commit was made."
+    },
+    {
+      "type": "section",
+      "title": "Why Closeout Is Needed",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "After finishing a feature or organizing materials, chat discussions may be thorough, but project documentation and file indexes often remain out of sync. When resuming work the next day, switching computers, or moving to a different AI assistant, you frequently have to search through changes from scratch and re-explain everything."
+        },
+        {
+          "type": "paragraph",
+          "text": "Project Closeout reconciles existing progress records, directory indexes, and actual modified files to identify completed and unrecorded work. It writes finished items, unresolved leftovers, and concrete next actions back into existing documentation for seamless continuation at any time."
+        }
+      ]
+    },
+    {
+      "type": "section",
+      "title": "Usage Example (Fictional Illustration)",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Take a fictional booklist project as an example: you just fixed a title display bug in app.py, but README.md progress notes still reflect the previous stage, and a colleague's draft.txt is left in the workspace."
+        },
+        {
+          "type": "paragraph",
+          "text": "When you explicitly request a full closeout and all checks pass, it synchronizes the fix progress and next steps in the existing README.md, and creates a local commit containing only the verified app.py and README.md. Standard audits or doc-only updates will not execute a commit, and untouched files like draft.txt left in the workspace remain completely unaffected."
+        }
+      ]
+    },
+    {
+      "type": "section",
+      "title": "How to Use in Daily Work",
+      "blocks": [
+        {
+          "type": "list",
+          "items": [
+            "Use Project Closeout to check today's progress and omissions. Only audit changes against documentation—do not edit files or create commits.",
+            "Use Project Closeout to update existing progress and next steps in the documentation, but do not stage files or make Git commits.",
+            "Use Project Closeout for a full wrap-up: synchronize documentation and make a local Git commit for verified task files, but do not push to remote."
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "If your assistant does not recognize the English command, enter $project-day-closeout as an explicit fallback."
+        },
+        {
+          "type": "paragraph",
+          "text": "A full closeout can include a local commit for the current task while strictly respecting existing constraints such as doc-only or no-Git requests; unverified or ambiguously scoped changes will be withheld from the commit with clear reasons given. Documentation updates, Git commits, and business completions are reported separately—a code commit is never treated as business task acceptance."
+        }
+      ]
+    },
+    {
+      "type": "section",
+      "title": "Prerequisites and Execution Results",
+      "blocks": [
+        {
+          "type": "list",
+          "items": [
+            "Full closeout depends on the three-directory skill suite of matching versions. You usually only need to invoke the primary skill; if companion skills are missing, it explains the affected steps without secretly installing them, and will not report full closeout as completed.",
+            "When project rules, directory indexes, or readable materials are incomplete, it continues reconciling using available documentation and current requests while explicitly marking uncovered scopes; restricted partial audits must not be treated as comprehensive gap analysis, nor can they claim full closeout completion.",
+            "When there is no Git repository, documentation handover is still supported, with an explicit report that no local Git commit was made; it will never initialize or configure a repository without authorization.",
+            "During execution, it does not move or delete files on its own initiative, never pushes to remote repositories, and excludes unrelated or unverified staged files.",
+            "After closeout, it reports the exact locations of documentation updates alongside the actual local commit hash or the reason why a commit was omitted."
+          ]
+        }
+      ]
+    },
+    {
+      "type": "section",
+      "title": "Installation",
+      "blocks": [
+        {
+          "type": "copy_field",
+          "label": "Copy Installation Prompt",
+          "value": "Please first read the installation guide at https://github.com/naiman-debug/naiman-skills/blob/main/docs/%E5%AE%89%E8%A3%85%E4%B8%8E%E6%9B%B4%E6%96%B0.md , download the v0.1.0 source package from https://github.com/naiman-debug/naiman-skills/releases/tag/v0.1.0 , and install the three full directories project-day-closeout, project-directory-closeout, and project-git-closeout under .agents/skills/ in the practice project. If identical directory names exist, stop and compare first; retain all files and the root LICENSE, and do not copy root AGENTS.md. After installation, report the loaded paths and version, and perform an initial read-only check."
+        }
+      ]
+    },
+    {
+      "type": "section",
+      "title": "Related Resources",
+      "blocks": [
+        {
+          "type": "link_list",
+          "items": [
+            {
+              "label": "Installation and Update Guide (Chinese)",
+              "href": "../../docs/安装与更新.md"
+            },
+            {
+              "label": "Skill Specification Details (SKILL.md) (Chinese)",
+              "href": "SKILL.md"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
