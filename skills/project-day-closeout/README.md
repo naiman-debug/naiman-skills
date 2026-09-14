@@ -1,25 +1,59 @@
-# 打完收工
+# 项目收工
 
-版本见本目录 SKILL.md 的 metadata.version；是否已发布以仓库 Release 为准。
+[English](README.en.md) · [中文](README.md)
 
-## 用途
+**下次打开，知道从哪里接着做**
 
-在任务结束时同步已有责任文件、核对受影响目录、留下接续位置，并在用户明确完整收工且批次准备就绪时完成本地 Git 存档。
+虚构示意，实际效果取决于已有材料与具体限制
 
-## 使用条件
+![下次打开，知道从哪里接着做](assets/readme-card.zh-CN.png)
 
-优先读取项目已有 AGENTS、README、索引和任务记录。缺少 AGENTS、索引或 profile 时，可以用 README 和用户当前请求确定最小范围，但必须说明没有覆盖的部分，不能自动补建项目治理文件。
+- 只在对话里说做完，文件说明未同步 → 📑 把新结论写回已有说明，记录下次接续
+- 多处改动混杂，分不清哪些经过验证 → 🧭 核对实际改动与索引，理清未完成项
+- 直接全选提交容易误带其他临时文件 → 📦 仅本地提交本次检查通过的文件不推送
 
-## 依赖
+若项目无 Git 仓库则只同步文档并如实提示无代码存档。
 
-完整收工依赖相邻的 project-directory-closeout 与 project-git-closeout。缺少任一目录时，不使用个人源目录或安装替代；报告受影响阶段并完成其余可完成部分。requires 仅记录安装依赖，不会自动安装或递归调用技能。
+## 为什么需要收工
 
-## 示例
+平时做完功能或整理完资料，对话里的讨论虽然完整，但说明文档和文件索引往往还没同步。隔天重新开工、换电脑或换一个 AI 助手时，经常需要从头翻查改动并重新解释。
 
-“今天的功能和说明已完成。请完整收工：更新已有 README 和任务记录，核对本次改动涉及的目录；如果本批文件归属明确、验证完成且没有未知暂存，则做本地提交，不要推送。”
+项目收工在现有进度记录、目录索引和实际文件之间核对，找出改好与未登记的内容，把已完成事项、未决遗留与下一步明确动作写回已有文档，方便随时接续。
 
-## 行为边界
+## 使用示例（虚构示意）
 
-audit 只读；readiness_only 只准备、不暂存、不提交；full 可在已有授权内本地提交。技能不默认推送，不夹带未知暂存，不删除或搬移文件，也不自动初始化 Git、配置远程或创建新的项目规范。
+以虚构的书单项目为例：刚刚在 app.py 修复了标题显示，但 README.md 中的进度依然停留在上一阶段，工作区还放着他人的 draft.txt。
 
-安装和更新时取出完整的收工三目录组合，不只替换SKILL.md。通用操作步骤见保留的完整下载包根目录下 docs/安装与更新.md；该共用说明不随单个技能目录自动安装。
+当你明确要求完整收工且各项检查通过后，它会在已有 README.md 中同步修复进展与下一步，并只把本次改好的 app.py 和 README.md 做本地提交。普通检查或只记录时不会执行提交，工作区里其他人留下的 draft.txt 也会原样保留不受影响。
+
+## 日常怎么用
+
+- 使用项目收工先检查今天的进度与遗漏，只核对改动与文档差异，不修改文件也不做提交。
+- 使用项目收工更新已有进度与下次接续，把今天的修改记录到文档中，但先不做 Git 提交。
+- 使用项目收工打完收工，同步文档后把本次已检查好的文件做本地 Git 提交，不要推送到远程。
+
+若助手未识别中文指令，可输入 $project-day-closeout 兜底调用。
+
+完整收工可以包含本任务的本地提交，但依然遵循只记录、不要Git等已有要求；归属不明或检查未通过的部分会暂缓提交并说明原因。记录更新、Git提交与业务完成会分别报告，绝不把代码提交当成业务验收。
+
+## 使用前提与执行结果
+
+- 完整收工依赖同版本的三目录套件。平时只需调用主技能；若缺少辅助技能会说明受影响步骤且不私下补装，不能报告完整收工已完成。
+- 当项目规则、目录索引或可读取资料不完整时，会结合已有说明与当前请求继续核对，但会明确标明未覆盖范围；受限的部分核对不能当作已找全遗漏，也不能宣称已完整收工。
+- 无 Git 仓库时依然支持文档接续，但会说明未做 Git 存档，绝不私自初始化或配置仓库。
+- 执行时不主动搬移或删除文件，不向远程推送，也不夹带无关暂存项。
+- 收工后会汇报文档更新位置，以及实际的本地提交号或未提交原因。
+
+## 安装方法
+
+```text
+请先阅读安装指南 https://github.com/naiman-debug/naiman-skills/blob/main/docs/%E5%AE%89%E8%A3%85%E4%B8%8E%E6%9B%B4%E6%96%B0.md ，从 https://github.com/naiman-debug/naiman-skills/releases/tag/v0.1.0 下载 v0.1.0 源码包，将 project-day-closeout、project-directory-closeout 和 project-git-closeout 三个完整目录安装到练习项目的 .agents/skills/ 下。若有同名请先停止比对；保留全部文件与根目录 LICENSE，切勿复制根目录 AGENTS.md。安装后报告读取路径与版本，并做首次只读检查。
+```
+
+## English Summary
+
+Project Day Closeout helps developers wrap up a working session by synchronizing progress notes, indexes, and next steps in existing documentation. It provides three operational modes: read-only audit, documentation update, and full local closeout. When full closeout is requested, it creates scoped local Git commits for verified files from the current task without pushing upstream. If dependencies, project rules, or Git permissions are missing, it proceeds with partial updates, clearly lists affected stages, and explains any withheld actions. Documentation updates, Git commits, and business completions remain strictly separated and reported independently.
+
+## 相关资料
+
+[安装与更新指南](../../docs/安装与更新.md) · [技能规范详情（SKILL.md）](SKILL.md)
