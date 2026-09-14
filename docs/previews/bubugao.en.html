@@ -1,0 +1,389 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Bubugao</title>
+  <style>
+    :root { --page: #ffffff; --text: #202c35; --card: #f7f7f2; --accent: #43835a; --muted: #53685b; --font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; --body-size: 16px; --body-weight: 400; --body-line-height: 1.75; --heading-size: 24px; --heading-weight: 600; --card-title-size: 16px; --card-title-weight: 600; --comparison-size: 16px; --label-size: 16px; --page-max-width: 900px; --card-padding: 24px; --comparison-row-height: 40px; --card-radius: 12px; }
+
+    * { box-sizing: border-box; }
+
+    html { font-size: 16px; }
+
+    body {
+      margin: 0;
+      background: var(--page);
+      color: var(--text);
+      font-family: var(--font-family);
+      font-size: var(--body-size);
+      font-weight: var(--body-weight);
+      line-height: var(--body-line-height);
+    }
+
+    main {
+      width: min(calc(100% - 32px), var(--page-max-width));
+      margin: 20px auto;
+      padding: 24px 28px 36px;
+      border: 1px solid #d9dfe5;
+      border-radius: 6px;
+    }
+
+    h1, h2, p, ul, ol, table { margin-top: 0; }
+
+    h1 {
+      margin-bottom: 22px;
+      font-size: var(--heading-size);
+      font-weight: var(--heading-weight);
+      line-height: 1.4;
+      overflow-wrap: anywhere;
+    }
+
+    h2 {
+      margin: 28px 0 18px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid #d9dfe5;
+      font-size: 21px;
+      font-weight: 600;
+      line-height: 1.45;
+      overflow-wrap: anywhere;
+    }
+
+    p, ul, ol {
+      max-width: 100%;
+      overflow-wrap: anywhere;
+      word-break: normal;
+    }
+
+    html[lang="zh-CN"] p, html[lang="zh-CN"] ul, html[lang="zh-CN"] ol {
+      line-break: strict;
+      text-wrap: pretty;
+    }
+
+    p { margin-bottom: 18px; }
+
+    li { margin: 5px 0; overflow-wrap: anywhere; }
+
+    html[lang="zh-CN"] li { text-wrap: balance; }
+
+    html[lang="en"] p, html[lang="en"] ul, html[lang="en"] ol,
+    html[lang="en"] li { line-break: auto; text-wrap: wrap; }
+
+    a { color: #0969da; overflow-wrap: anywhere; }
+
+    a:focus-visible, button:focus-visible, .table-scroll:focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 3px;
+    }
+
+    section.section-separated {
+      margin-top: 28px;
+      padding-top: 1px;
+      border-top: 1px solid #d9dfe5;
+    }
+
+    section.section-separated h2 { margin-top: 20px; }
+
+    .hero {
+      margin: 0 0 24px;
+      padding: var(--card-padding);
+      border-radius: var(--card-radius);
+      background: var(--card);
+      color: var(--text);
+      font-size: var(--body-size);
+      overflow: hidden;
+    }
+
+    .hero-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      color: var(--muted);
+      font-size: var(--body-size);
+    }
+
+    .hero-label { font-weight: 500; }
+
+    .badge {
+      flex: 0 0 auto;
+      padding: 1px 12px;
+      border-radius: 999px;
+      background: #e3ebe1;
+      color: var(--muted);
+      font-size: var(--body-size);
+      white-space: nowrap;
+    }
+
+    .hero h2 {
+      margin: 6px 0 2px;
+      padding: 0;
+      border: 0;
+      color: var(--accent);
+      font-size: var(--card-title-size);
+      font-weight: var(--card-title-weight);
+      line-height: 1.5;
+    }
+
+    .hero-sub, .hero-foot {
+      color: var(--muted);
+      font-size: var(--body-size);
+      overflow-wrap: anywhere;
+    }
+
+    .hero-sub { margin: 0 0 14px; }
+
+    .comparison {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 28px minmax(0, 1fr);
+      grid-template-rows: auto repeat(var(--comparison-row-count), auto);
+      gap: 6px 10px;
+      align-items: stretch;
+    }
+
+    .comparison-old, .comparison-new {
+      display: grid;
+      grid-template-rows: subgrid;
+      grid-row: 1 / -1;
+      min-width: 0;
+      padding: 10px 12px;
+      border-radius: 8px;
+    }
+
+    .comparison-old {
+      grid-column: 1;
+      background: #eeefe8;
+      color: #606d63;
+    }
+
+    .comparison-new { grid-column: 3; background: #fff; }
+
+    .comparison-title {
+      margin-bottom: 0;
+      padding-bottom: 5px;
+      border-bottom: 1px solid #d9e1d5;
+      font-size: var(--label-size);
+      font-weight: 600;
+      overflow-wrap: anywhere;
+    }
+
+    .comparison-row {
+      display: grid;
+      align-items: center;
+      min-height: var(--comparison-row-height);
+      margin: 0;
+      padding: 6px 8px;
+      border-radius: 6px;
+      font-size: var(--comparison-size);
+      line-height: 1.5;
+      overflow-wrap: anywhere;
+      word-break: normal;
+    }
+
+    html[lang="zh-CN"] .comparison-row {
+      line-break: strict;
+      text-wrap: wrap;
+    }
+
+    html[lang="en"] .comparison-row { line-break: auto; text-wrap: wrap; }
+
+    .comparison-old .comparison-row + .comparison-row {
+      border-top: 1px solid #d9e1d5;
+      border-radius: 0;
+    }
+
+    .comparison-arrows {
+      display: grid;
+      grid-column: 2;
+      grid-row: 1 / -1;
+      grid-template-rows: subgrid;
+      padding: 10px 0;
+      color: #8bae99;
+      font-size: 23px;
+      line-height: 1;
+      text-align: center;
+    }
+
+    .comparison-arrows::before { content: ""; }
+
+    .comparison-arrow {
+      display: grid;
+      place-items: center;
+      min-height: var(--comparison-row-height);
+    }
+
+    .hero-foot { margin: 10px 0 0; }
+
+    .feature-list { list-style: disc; padding-left: 1.25em; }
+
+    .feature-list > li::marker { color: var(--muted); }
+
+    html[lang="zh-CN"] .feature-list > li {
+      margin: 0 0 16px;
+      text-wrap: pretty;
+    }
+
+    html[lang="en"] .feature-list > li { margin: 0 0 16px; text-wrap: wrap; }
+
+    .feature-list strong { font-weight: 600; }
+
+    html[lang="zh-CN"] .prose-tail { white-space: nowrap; }
+
+    .copy-field {
+      position: relative;
+      max-width: 100%;
+      padding: 16px 54px 12px 16px;
+      background: #f6f8fa;
+      border-radius: 4px;
+    }
+
+    .copy-field pre {
+      margin: 0;
+      padding-bottom: 8px;
+      overflow-x: auto;
+      white-space: pre-wrap;
+      overflow-wrap: anywhere;
+      font: var(--body-size)/1.7 Consolas, "Cascadia Code", monospace;
+    }
+
+    .copy-button {
+      position: absolute;
+      top: 10px;
+      right: 8px;
+      padding: 4px 7px;
+      border: 0;
+      border-radius: 4px;
+      background: transparent;
+      color: #53685b;
+      cursor: pointer;
+      font: inherit;
+    }
+
+    .copy-status {
+      display: block;
+      min-height: 1.4em;
+      margin-top: 6px;
+      color: #53685b;
+      font-size: var(--body-size);
+    }
+
+    .links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4px 10px;
+      max-width: 100%;
+    }
+
+    .table-scroll {
+      max-width: 100%;
+      overflow-x: auto;
+      margin: 0 0 18px;
+    }
+
+    table {
+      border-collapse: collapse;
+      font-size: var(--body-size);
+    }
+
+    th, td {
+      padding: 7px 14px;
+      border: 1px solid #d9dfe5;
+      text-align: left;
+      vertical-align: top;
+      overflow-wrap: anywhere;
+    }
+
+    th { font-weight: 600; }
+
+    tr:nth-child(even) { background: #f6f8fa; }
+
+    @media (max-width: 600px) {
+      main {
+        width: 100%;
+        margin: 0;
+        padding: 18px;
+        border: 0;
+        border-radius: 0;
+      }
+
+      h1 { font-size: 20px; }
+
+      .hero { padding: 16px; }
+
+      .hero-top { flex-wrap: wrap; }
+
+      .badge { max-width: 100%; min-width: 0; white-space: normal; overflow-wrap: anywhere; }
+
+      .comparison { grid-template-columns: minmax(0, 1fr); grid-template-rows: auto; gap: 12px; }
+
+      .comparison-old, .comparison-new {
+        grid-column: 1;
+        grid-row: auto;
+        grid-template-rows: auto;
+        gap: 6px;
+      }
+
+      .comparison-arrows { display: none; }
+    }
+  </style>
+</head>
+<body>
+  <main id="reader-preview">
+<h1>Bubugao</h1>
+<nav class="links" aria-label="Related links"><a href="bubugao.en.html">English</a><a href="bubugao.html">中文</a></nav>
+<section class="hero"><div class="hero-top"><span class="hero-label">bubugao</span><span class="badge">● Step-by-step discussion · Recorded on demand</span></div><h2>Clarify ideas step by step and record them</h2><p class="hero-sub">Ask key questions step by step to clarify the discussion roadmap.</p><div class="comparison" style="--comparison-row-count: 3"><div class="comparison-old"><div class="comparison-title">Common challenges</div><div class="comparison-row">Assuming the discussion is done after just a few exchanges</div><div class="comparison-row">Discussions easily veer off track</div><div class="comparison-row">Tossing new conclusions randomly into old documents</div></div><div class="comparison-arrows" aria-hidden="true" style="--comparison-row-count: 3"><span class="comparison-arrow">→</span><span class="comparison-arrow">→</span><span class="comparison-arrow">→</span></div><div class="comparison-new"><div class="comparison-title">How Bubugao helps</div><div class="comparison-row" style="background: #e9f2e7">🧭 Probing details round by round in sequential order</div><div class="comparison-row" style="background: #edf0f9">🛣️ Using a roadmap to stay focused on current priorities</div><div class="comparison-row" style="background: #f3edf6">📑 Checking existing records before deciding where to write</div></div></div><p class="hero-foot">Discussion example; does not imply automatic saving of all requirements.</p></section>
+<section>
+<h2>Introduction to Bubugao</h2>
+<p>Bubugao is built on Matt Pocock&#x27;s open-source project grill-with-docs. It preserves the core capabilities of the original: asking questions in rounds based on decision dependencies, proactively offering recommendations, verifying existing project facts, clarifying terminology definitions, and recording decisions when conditions are met.</p>
+<p>Compared to the original, Bubugao adds only two features: organizing a concise discussion route (Road), and checking whether existing terminology files (Context) are still applicable to the current scenario before writing anything down. It introduces no complex workflows or redundant orchestration frameworks.</p>
+<ul class="feature-list" role="list"><li><strong>Dependency-driven probing:</strong> It will not skip ahead to ask minor dependent questions before major prerequisites are settled.</li><li><strong>Verifying existing records:</strong> When encountering an existing terminology file, it checks whether its content is appropriate for the current discussion, rather than blindly appending new content just because the filename contains Context.</li></ul>
+</section>
+<section class="section-separated">
+<h2>Why We Created Bubugao</h2>
+<p>When discussing ideas with AI, many people run into a common scenario: after sharing just two or three sentences, the AI responds agreeably, and both sides assume everything is settled. But when it comes time to implement, they realize fundamental concepts were left vague, critical use cases were overlooked, and prerequisite dependencies were never sorted out. At other times, discussions get sidetracked by minor, non-urgent details, losing sight of the main storyline. And once a new conclusion is finally reached, the AI might directly append text to an outdated, unmaintained document where it gets lost forever.</p>
+<p>Bubugao is designed to solve these everyday hassles. It asks you questions round by round based on logical dependencies, proactively consulting existing project files when needed to establish facts (or clearly stating what is unknown if permissions are unavailable). Before writing anything down, it verifies whether existing terminology files are still suitable. It also maintains a concise discussion roadmap (Road) that clearly lays out what is already settled, what core questions remain, what to discuss next, and what can be deferred—giving you a clear view of what is decided and what is still missing.</p>
+</section>
+<section>
+<h2>Daily Usage</h2>
+<p>Say directly to Codex:</p>
+<ul class="feature-list" role="list"><li><strong>Start a discussion:</strong> Use Bubugao to help me clarify this idea.</li><li><strong>Read-only review:</strong> Use Bubugao to see what&#x27;s missing in this plan. Just discuss for now without modifying any files.</li><li><strong>Resume a discussion:</strong> Continue our discussion with Bubugao. First check what remained undecided last time.</li><li><strong>Pause and checkpoint:</strong> Bubugao, let&#x27;s pause here for today. Record what&#x27;s settled and where to pick up next time.</li></ul>
+<p>If your environment does not recognize the skill name, you can select it directly from your list of installed skills or type $bubugao to proceed. This skill requires actual file access permissions when writing records to files; if you are only discussing plans in read-only mode, you can proceed directly.</p>
+</section>
+<section>
+<h2>Let Codex Install It for You</h2>
+<p>Copy the following text and send it to Codex:</p>
+<div class="copy-field"><pre id="copy-value-1">Please first read and follow the installation guide https://github.com/naiman-debug/naiman-skills/blob/main/docs/安装与更新.md . Before copying, check for an existing same-named bubugao skill in both the project skill discovery directory and actual user-level skill discovery locations, and stop immediately if a conflict is found. Copy the complete skills/bubugao from the v0.1.0 release package (including upstream materials and license) into .agents/skills/bubugao in the current practice project, and do not copy the root AGENTS.md. After installation, perform an initial read-only check and report the loaded path and version.</pre><button type="button" class="copy-button" data-copy-target="copy-value-1" data-status-target="copy-status-1" aria-label="Copy installation prompt" title="Copy installation prompt">⧉</button><span id="copy-status-1" class="copy-status" aria-live="polite"></span></div>
+</section>
+<section>
+<h2>Example: How a Personal Reading List Is Discussed</h2>
+<p>To illustrate the specific questioning process, here is a fictional discussion example for a personal reading list.</p>
+<p>The user previously established two explicit prerequisites: the reading list is stored only on the local computer, and book titles are entered manually. Building on this foundation, Bubugao begins organizing the discussion road: the current goal is to clarify the basic usage of the reading list; the immediate next step is to define reading status values for books; as for the UI color theme mentioned offhand by the user, Bubugao suggests treating it as a deferred item to revisit once the primary logic is clear.</p>
+<p>Next, Bubugao presents a concrete use case for the user to decide: &quot;You mentioned three statuses: Want to Read, Reading, and Completed. If you stop reading a book halfway through, should it count as Completed with progress in notes, or should we add a separate &#x27;Abandoned&#x27; status? This affects how statistics will be calculated later.&quot; Once the user decides to add &quot;Abandoned&quot;, Bubugao organizes the term definition in preparation for recording.</p>
+<ul class="feature-list" role="list"><li><strong>Respecting established premises:</strong> Builds on the user&#x27;s confirmed premises of local storage and manual input, without fabricating assumptions or altering them without consent.</li><li><strong>Offering concrete options for your decision:</strong> Turns vague status transitions into concrete scenario options, leaving the final decision to you.</li><li><strong>Distinguishing suggested deferrals from confirmed deferrals:</strong> The UI color theme is merely a suggestion from the assistant to defer; it is not treated as a settled decision until the user explicitly confirms it.</li></ul>
+</section>
+<section>
+<h2>Output Destinations and File Guidelines</h2>
+<p>Content generated during discussions has designated destinations. Before recording a discussion road (Road), the specific target location is shown in advance. When inspecting terminology files (Context), the corresponding path and suitability assessment are also provided. If ownership or placement is unclear, writes dependent on that placement will pause until confirmed with you. Key architectural decisions are recorded as ADRs only when they meet criteria and with your explicit permission.</p>
+<ul class="feature-list" role="list"><li><strong>Dedicated Terminology Files (Context):</strong> Used to store domain vocabulary and term explanations (such as CONTEXT.md), without any implementation details. If the project contains a domain map file (CONTEXT-MAP.md), it follows the map to locate the terminology file for the relevant domain; if there is no map, it checks the terminology file in the root directory. If the project has none of these files, it does not create empty placeholder files in advance—they are created on demand only when terms are actually finalized.</li><li><strong>Architecture Decision Records (ADR):</strong> ADR stands for Architecture Decision Record. Writing an ADR is suggested only when three criteria are met simultaneously: first, the decision is difficult to reverse later; second, future readers will wonder why this choice was made; third, a genuine tradeoff was made among multiple viable alternatives. Routine decisions do not warrant an ADR.</li><li><strong>Discussion Roadmap (Road):</strong> Tracks where the discussion currently stands, what remains, and what comes next. When write permission is granted, it prioritizes reusing an already approved location from the current session, writing to ROAD.md in the target project only if no suitable location exists. In read-only mode, the roadmap, unresolved questions upon pausing, and next steps remain solely in the chat response without modifying files.</li><li><strong>Recording Boundaries:</strong> Routine requirement details are not guaranteed to be fully saved into documents. Completing a discussion does not imply code will be written automatically, nor will it modify or delete any of your other skills.</li></ul>
+</section>
+<nav class="links" aria-label="Related links"><a href="https://github.com/naiman-debug/naiman-skills/blob/main/docs/安装与更新.md">Installation and Updates (Chinese)</a><a href="https://github.com/mattpocock/skills/tree/3cca18b368ae95cdbdebbff572ccafa662551015">Upstream Pinned Version</a><a href="https://github.com/naiman-debug/naiman-skills/blob/main/skills/bubugao/LICENSE.upstream">Upstream MIT License</a></nav>
+  </main>
+  <script>
+    document.addEventListener('click', async (event) => {
+      const button = event.target.closest('.copy-button');
+      if (!button) return;
+
+      const target = document.getElementById(button.dataset.copyTarget);
+      const status = document.getElementById(button.dataset.statusTarget);
+      if (!target || !status) return;
+
+      try {
+        await navigator.clipboard.writeText(target.textContent);
+        status.textContent = "Copied.";
+      } catch (error) {
+        status.textContent = "Could not copy automatically. Select the text and copy it manually.";
+      }
+    });
+  </script>
+</body>
+</html>

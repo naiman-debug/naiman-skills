@@ -1,0 +1,390 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Project Startup</title>
+  <style>
+    :root { --page: #ffffff; --text: #202c35; --card: #f7f7f2; --accent: #43835a; --muted: #53685b; --font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; --body-size: 16px; --body-weight: 400; --body-line-height: 1.75; --heading-size: 24px; --heading-weight: 600; --card-title-size: 16px; --card-title-weight: 600; --comparison-size: 16px; --label-size: 16px; --page-max-width: 900px; --card-padding: 24px; --comparison-row-height: 40px; --card-radius: 12px; }
+
+    * { box-sizing: border-box; }
+
+    html { font-size: 16px; }
+
+    body {
+      margin: 0;
+      background: var(--page);
+      color: var(--text);
+      font-family: var(--font-family);
+      font-size: var(--body-size);
+      font-weight: var(--body-weight);
+      line-height: var(--body-line-height);
+    }
+
+    main {
+      width: min(calc(100% - 32px), var(--page-max-width));
+      margin: 20px auto;
+      padding: 24px 28px 36px;
+      border: 1px solid #d9dfe5;
+      border-radius: 6px;
+    }
+
+    h1, h2, p, ul, ol, table { margin-top: 0; }
+
+    h1 {
+      margin-bottom: 22px;
+      font-size: var(--heading-size);
+      font-weight: var(--heading-weight);
+      line-height: 1.4;
+      overflow-wrap: anywhere;
+    }
+
+    h2 {
+      margin: 28px 0 18px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid #d9dfe5;
+      font-size: 21px;
+      font-weight: 600;
+      line-height: 1.45;
+      overflow-wrap: anywhere;
+    }
+
+    p, ul, ol {
+      max-width: 100%;
+      overflow-wrap: anywhere;
+      word-break: normal;
+    }
+
+    html[lang="zh-CN"] p, html[lang="zh-CN"] ul, html[lang="zh-CN"] ol {
+      line-break: strict;
+      text-wrap: pretty;
+    }
+
+    p { margin-bottom: 18px; }
+
+    li { margin: 5px 0; overflow-wrap: anywhere; }
+
+    html[lang="zh-CN"] li { text-wrap: balance; }
+
+    html[lang="en"] p, html[lang="en"] ul, html[lang="en"] ol,
+    html[lang="en"] li { line-break: auto; text-wrap: wrap; }
+
+    a { color: #0969da; overflow-wrap: anywhere; }
+
+    a:focus-visible, button:focus-visible, .table-scroll:focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 3px;
+    }
+
+    section.section-separated {
+      margin-top: 28px;
+      padding-top: 1px;
+      border-top: 1px solid #d9dfe5;
+    }
+
+    section.section-separated h2 { margin-top: 20px; }
+
+    .hero {
+      margin: 0 0 24px;
+      padding: var(--card-padding);
+      border-radius: var(--card-radius);
+      background: var(--card);
+      color: var(--text);
+      font-size: var(--body-size);
+      overflow: hidden;
+    }
+
+    .hero-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      color: var(--muted);
+      font-size: var(--body-size);
+    }
+
+    .hero-label { font-weight: 500; }
+
+    .badge {
+      flex: 0 0 auto;
+      padding: 1px 12px;
+      border-radius: 999px;
+      background: #e3ebe1;
+      color: var(--muted);
+      font-size: var(--body-size);
+      white-space: nowrap;
+    }
+
+    .hero h2 {
+      margin: 6px 0 2px;
+      padding: 0;
+      border: 0;
+      color: var(--accent);
+      font-size: var(--card-title-size);
+      font-weight: var(--card-title-weight);
+      line-height: 1.5;
+    }
+
+    .hero-sub, .hero-foot {
+      color: var(--muted);
+      font-size: var(--body-size);
+      overflow-wrap: anywhere;
+    }
+
+    .hero-sub { margin: 0 0 14px; }
+
+    .comparison {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 28px minmax(0, 1fr);
+      grid-template-rows: auto repeat(var(--comparison-row-count), auto);
+      gap: 6px 10px;
+      align-items: stretch;
+    }
+
+    .comparison-old, .comparison-new {
+      display: grid;
+      grid-template-rows: subgrid;
+      grid-row: 1 / -1;
+      min-width: 0;
+      padding: 10px 12px;
+      border-radius: 8px;
+    }
+
+    .comparison-old {
+      grid-column: 1;
+      background: #eeefe8;
+      color: #606d63;
+    }
+
+    .comparison-new { grid-column: 3; background: #fff; }
+
+    .comparison-title {
+      margin-bottom: 0;
+      padding-bottom: 5px;
+      border-bottom: 1px solid #d9e1d5;
+      font-size: var(--label-size);
+      font-weight: 600;
+      overflow-wrap: anywhere;
+    }
+
+    .comparison-row {
+      display: grid;
+      align-items: center;
+      min-height: var(--comparison-row-height);
+      margin: 0;
+      padding: 6px 8px;
+      border-radius: 6px;
+      font-size: var(--comparison-size);
+      line-height: 1.5;
+      overflow-wrap: anywhere;
+      word-break: normal;
+    }
+
+    html[lang="zh-CN"] .comparison-row {
+      line-break: strict;
+      text-wrap: wrap;
+    }
+
+    html[lang="en"] .comparison-row { line-break: auto; text-wrap: wrap; }
+
+    .comparison-old .comparison-row + .comparison-row {
+      border-top: 1px solid #d9e1d5;
+      border-radius: 0;
+    }
+
+    .comparison-arrows {
+      display: grid;
+      grid-column: 2;
+      grid-row: 1 / -1;
+      grid-template-rows: subgrid;
+      padding: 10px 0;
+      color: #8bae99;
+      font-size: 23px;
+      line-height: 1;
+      text-align: center;
+    }
+
+    .comparison-arrows::before { content: ""; }
+
+    .comparison-arrow {
+      display: grid;
+      place-items: center;
+      min-height: var(--comparison-row-height);
+    }
+
+    .hero-foot { margin: 10px 0 0; }
+
+    .feature-list { list-style: disc; padding-left: 1.25em; }
+
+    .feature-list > li::marker { color: var(--muted); }
+
+    html[lang="zh-CN"] .feature-list > li {
+      margin: 0 0 16px;
+      text-wrap: pretty;
+    }
+
+    html[lang="en"] .feature-list > li { margin: 0 0 16px; text-wrap: wrap; }
+
+    .feature-list strong { font-weight: 600; }
+
+    html[lang="zh-CN"] .prose-tail { white-space: nowrap; }
+
+    .copy-field {
+      position: relative;
+      max-width: 100%;
+      padding: 16px 54px 12px 16px;
+      background: #f6f8fa;
+      border-radius: 4px;
+    }
+
+    .copy-field pre {
+      margin: 0;
+      padding-bottom: 8px;
+      overflow-x: auto;
+      white-space: pre-wrap;
+      overflow-wrap: anywhere;
+      font: var(--body-size)/1.7 Consolas, "Cascadia Code", monospace;
+    }
+
+    .copy-button {
+      position: absolute;
+      top: 10px;
+      right: 8px;
+      padding: 4px 7px;
+      border: 0;
+      border-radius: 4px;
+      background: transparent;
+      color: #53685b;
+      cursor: pointer;
+      font: inherit;
+    }
+
+    .copy-status {
+      display: block;
+      min-height: 1.4em;
+      margin-top: 6px;
+      color: #53685b;
+      font-size: var(--body-size);
+    }
+
+    .links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4px 10px;
+      max-width: 100%;
+    }
+
+    .table-scroll {
+      max-width: 100%;
+      overflow-x: auto;
+      margin: 0 0 18px;
+    }
+
+    table {
+      border-collapse: collapse;
+      font-size: var(--body-size);
+    }
+
+    th, td {
+      padding: 7px 14px;
+      border: 1px solid #d9dfe5;
+      text-align: left;
+      vertical-align: top;
+      overflow-wrap: anywhere;
+    }
+
+    th { font-weight: 600; }
+
+    tr:nth-child(even) { background: #f6f8fa; }
+
+    @media (max-width: 600px) {
+      main {
+        width: 100%;
+        margin: 0;
+        padding: 18px;
+        border: 0;
+        border-radius: 0;
+      }
+
+      h1 { font-size: 20px; }
+
+      .hero { padding: 16px; }
+
+      .hero-top { flex-wrap: wrap; }
+
+      .badge { max-width: 100%; min-width: 0; white-space: normal; overflow-wrap: anywhere; }
+
+      .comparison { grid-template-columns: minmax(0, 1fr); grid-template-rows: auto; gap: 12px; }
+
+      .comparison-old, .comparison-new {
+        grid-column: 1;
+        grid-row: auto;
+        grid-template-rows: auto;
+        gap: 6px;
+      }
+
+      .comparison-arrows { display: none; }
+    }
+  </style>
+</head>
+<body>
+  <main id="reader-preview">
+<h1>Project Startup</h1>
+<nav class="links" aria-label="Related links"><a href="project-startup-standardization.en.html">English</a><a href="project-startup-standardization.html">中文</a></nav>
+<section class="hero"><div class="hero-top"><span class="hero-label">Quick Overview</span><span class="badge">● v0.1.0</span></div><h2>Help You and AI Know Where to Start</h2><p class="hero-sub">Clarify directory purposes, entry points, and read/write locations across existing files</p><div class="comparison" style="--comparison-row-count: 2"><div class="comparison-old"><div class="comparison-title">Before Organizing</div><div class="comparison-row">Files pile up over time, leaving you unsure which file to read first and where to write new content</div><div class="comparison-row">Worry about messing up existing files or being forced to adopt heavy documentation templates</div></div><div class="comparison-arrows" aria-hidden="true" style="--comparison-row-count: 2"><span class="comparison-arrow">→</span><span class="comparison-arrow">→</span></div><div class="comparison-new"><div class="comparison-title">How This Skill Helps</div><div class="comparison-row" style="background: #edf0f9">📁 Clarifies directory purposes and entry points, establishing clear read/write locations</div><div class="comparison-row" style="background: #f3edf6">🧭 Performs a read-only inventory first, adding only essential entry documentation upon confirmation</div></div></div><p class="hero-foot">Does not automatically move or delete existing files, does not automatically commit to Git, and keeps organization lightweight and on demand.</p></section>
+<section>
+<h2>Why This Skill Is Needed</h2>
+<p>When starting with an empty directory, we often do not know where to put different types of files or when to start structuring the project. As scattered ideas, requirements, reference materials, and demo files accumulate over time without prior conventions, AI assistants can easily get confused about which documents to read and where to write new content.</p>
+<p>This skill starts from existing materials, follows existing project naming conventions and rules, distinguishes active content from historical references, and clarifies directory purposes, project entry points, and key reference sources. This organization workflow leaves source materials intact while updating navigation to provide clear guidance on where to read and write. When new content is added later, users or AI can update existing descriptions only when entry points change—maintaining just the affected sections without starting over each time.</p>
+</section>
+<section>
+<h2>Organization Method and Output Details</h2>
+<p>During organization, existing documentation or indexes are reused whenever possible and supplemented on demand. For empty directories, minimal entry files are created only after confirmation, avoiding heavy pre-packaged templates.</p>
+<p>Original materials are preserved intact without rewriting historical records into new conclusions. The initial read-only inspection only reports findings and recommendations; the organization process is considered complete only after receiving authorization and verifying written entry files.</p>
+</section>
+<section>
+<h2>Fictional Example</h2>
+<p>Here is a fictional scenario illustrating the actual organization workflow:</p>
+<p>Suppose in a practice project, the root directory is cluttered with draft requirements, test scripts, and reference materials, leading AI to mistakenly reference outdated drafts when answering questions. Using Project Startup, a read-only inventory is performed first; upon confirmation, the main entry point is pointed to project documentation, clearly designating where active requirements and reference materials live. When test materials are added later, only the corresponding directory descriptions and indexes receive localized updates.</p>
+</section>
+<section>
+<h2>Daily Usage</h2>
+<p>You can directly send natural language requests like:</p>
+<ul><li>Use Project Startup to inventory directories and materials first—read-only, no modifications.</li><li>Add necessary entry points and directory descriptions based on the confirmed suggestions.</li><li>New materials were added; use Project Startup to organize only the affected descriptions.</li></ul>
+<p>If your assistant does not recognize the prompt, you can add $project-startup-standardization to your conversation. Different tools vary in their ability to automatically recognize skill names; if it still does not respond, you can directly provide the file path to the installed SKILL.md file.</p>
+</section>
+<section>
+<h2>What Changes and What Does Not</h2>
+<p>The skill writes necessary entry points, directory descriptions, or indexes only after user confirmation. It will not automatically move, rename, or delete existing files, nor will it modify original input documents.</p>
+<p>Organization does not automatically commit code or trigger releases. Completing organization only means clear directory entry points and record relationships have been established; it does not replace functional testing or business acceptance.</p>
+</section>
+<section>
+<h2>Installation and Reuse</h2>
+<p>To reuse this skill across multiple computers or practice projects, you can directly copy the prompt:</p>
+<div class="copy-field"><pre id="copy-value-1">Please first read and follow the installation guide: https://github.com/naiman-debug/naiman-skills/blob/main/docs/安装与更新.md
+From the v0.1.0 package specified in the guide, copy the complete skills/project-startup-standardization directory into .agents/skills/project-startup-standardization of the practice project. Keep the downloaded package and its root LICENSE outside skill discovery directories rather than inside the installed skill folder. Before copying, perform conflict checks per the guide and pause for confirmation if an installed skill with the same name already exists. Never copy the repository root AGENTS.md file. After installation, report the actual installed path and version number, and perform an initial read-only inspection.</pre><button type="button" class="copy-button" data-copy-target="copy-value-1" data-status-target="copy-status-1" aria-label="Installation Prompt" title="Installation Prompt">⧉</button><span id="copy-status-1" class="copy-status" aria-live="polite"></span></div>
+</section>
+<section>
+<h2>Related Documentation</h2>
+<nav class="links" aria-label="Related links"><a href="../%E5%AE%89%E8%A3%85%E4%B8%8E%E6%9B%B4%E6%96%B0.md">Installation and Update Guide (Chinese)</a><a href="../../skills/project-startup-standardization/SKILL.md">Skill Definition File</a></nav>
+</section>
+  </main>
+  <script>
+    document.addEventListener('click', async (event) => {
+      const button = event.target.closest('.copy-button');
+      if (!button) return;
+
+      const target = document.getElementById(button.dataset.copyTarget);
+      const status = document.getElementById(button.dataset.statusTarget);
+      if (!target || !status) return;
+
+      try {
+        await navigator.clipboard.writeText(target.textContent);
+        status.textContent = "Copied.";
+      } catch (error) {
+        status.textContent = "Could not copy automatically. Select the text and copy it manually.";
+      }
+    });
+  </script>
+</body>
+</html>
