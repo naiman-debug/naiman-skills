@@ -1,67 +1,38 @@
-# naiman-skills
+# naiman-skills: Your familiar AI skills, ready for another computer
 
-[中文](README.zh-CN.md) · [Installation & Updates (Chinese)](docs/安装与更新.md) · [GitHub Repository](https://github.com/naiman-debug/naiman-skills) · [Releases](https://github.com/naiman-debug/naiman-skills/releases) · [Contributing (Chinese)](CONTRIBUTING.md) · [Project Record (Chinese)](docs/项目记录.md)
+[中文](README.zh-CN.md) · [Installation Guide (Chinese)](docs/安装与更新.md) · [GitHub Repository](https://github.com/naiman-debug/naiman-skills) · [Releases (v0.1.0 pre-release)](https://github.com/naiman-debug/naiman-skills/releases) · [Contributing](CONTRIBUTING.md) · [Project Record](docs/项目记录.md)
 
-This is Naiman's personal AI skills repository, sharing practical skills I made to solve real problems when working with AI on projects. This initial release is intended for people using Codex with local file access. Please note that the underlying skill definitions, templates, and per-skill documentation files remain primarily in Chinese, though you can ask Codex to converse and respond in English or your preferred language.
+This is Naiman's personal AI skills repository. I built it so I can quickly download and use my familiar AI workflows whenever I switch machines or set up a new workspace.
 
-## Skill 1: Project Startup Standardization
+## Quick Selection
 
-When starting in an empty directory, I often struggle with where to place different files and when to formalize a project layout. As scattered ideas, draft requirements, reference notes, and demo files are added without prior conventions, AI assistants easily lose track of which reference materials to read and where new content should be written. This skill inspects existing project assets, respects your current conventions, and clarifies directory purposes, primary entry points, and reference locations along with clear maintenance guidelines. Whether starting fresh or introducing new materials mid-project, it reorganizes only the affected parts without tearing down your existing structure. Turning this workflow into a skill ensures both you and the AI immediately know where to begin, where files belong, and what indexes to update whenever directory layouts change.
+| Skill | When to Use | Observable Example | Documentation |
+|---|---|---|---|
+| `Skill 1: Project Startup` | Starting in an empty folder or organizing scattered drafts | Identifies current notes and clarifies what each folder is for, without moving legacy files | [Skill 1 README](skills/project-startup-standardization/README.en.md) |
+| `Skill 2: Project Day Closeout` | Wrapping up a session or saving milestone progress | Updates the project's existing progress notes and affected indexes, and can create a scoped local Git commit for authorized files | [Skill 2 README](skills/project-day-closeout/README.en.md) |
+| `Skill 3: Bubugao` | Discussing technical choices or feature designs | Checks whether existing terminology notes fit the current discussion, steps through key questions, and records major decisions under appropriate conditions | [Skill 3 README](skills/bubugao/README.en.md) |
 
-## Skill 2: Project Day Closeout (Wrap-up)
+*Note: Examples above illustrate typical outcomes under appropriate authorization; full Git commits only occur when explicitly requested and ready.*
 
-Every time I finish a working session, related files have changed, but accompanying documentation, indexes, progress notes, and next steps rarely get updated at the same time. Returning to the project later, I used to waste time searching through earlier results just to recall what was completed and what was still untouched. This skill steps through recent work during wrap-up, updates documentation and indexes, and logs completed tasks alongside concrete next actions. With your explicit confirmation, it can also create a clean local Git commit for the task's stable files without pushing upstream or mixing in unrelated changes. Packaging this as a skill provides a clear handover record for your next session, saving you and the AI from reconstructing project state from scratch.
+## Ask Codex to Install
 
-## Skill 3: Bubugao (Step-by-Step)
-
-During technical discussions, answering a few questions does not mean key decisions have been thoroughly thought through: finding what is still missing and deciding what to discuss next usually lacks clear guidance. Existing terminology documents in a repository might also belong to an older phase or a different domain, risking confusing legacy assumptions with new requirements if referenced blindly. Bubugao is a modification of Matt Pocock's [grill-with-docs](https://github.com/mattpocock/skills/tree/3cca18b368ae95cdbdebbff572ccafa662551015/skills/engineering/grill-with-docs), retaining its step-by-step interviewing, terminology clarification, and decision logging. It adds only two capabilities: a **Road** discussion route that tracks settled points, key gaps, immediate next priorities, and deferrable details; and a **Context suitability check** to verify whether existing documentation is relevant and current before using it. Bubugao keeps discussions moving in a clear direction, but it does not guarantee a complete requirements document and does not automatically start implementation.
-
-## Skills List
-
-- [Skill 1: Project Startup Standardization](skills/project-startup-standardization/README.md)
-- [Skill 2: Project Day Closeout](skills/project-day-closeout/README.md)
-- [Skill 3: Bubugao](skills/bubugao/README.md)
-
-## Quick Start
-
-After installing according to the [installation guide](docs/安装与更新.md), try these prompts in a practice project with Codex:
+This is a natural-language request for an AI agent with file and network access, not a shell script or automated installer. It may ask you to approve local file operations:
 
 ```text
-Use $project-startup-standardization to inspect project materials and suggest
-minimal directories, entry points, and indexes. Read-only; do not create files.
+Please download the v0.1.0 source ZIP from https://github.com/naiman-debug/naiman-skills/releases/tag/v0.1.0 and unpack outside skill discovery directories.
+Before copying, check my project's `.agents/skills/` AND all actually used user skill discovery paths (e.g. `~/.agents/skills/`) for same-named folders; if found, STOP before any copy to compare, with no overwriting or duplicate installs.
+If clear, copy the five complete skill folders (`skills/project-startup-standardization`, `skills/project-day-closeout`, `skills/project-directory-closeout`, `skills/project-git-closeout`, `skills/bubugao`) into project `.agents/skills/`.
+Preserve all folder files (agents, references, assets, templates) and keep the downloaded root LICENSE; do not copy root AGENTS.md into project.
+After copying, report actual SKILL.md path and metadata.version, then run a first read-only check without modifying business files or Git.
 ```
 
-```text
-Use $project-day-closeout to check today's work and resume position.
-Do not modify files or Git. List completed items and missing gaps.
-```
+## Multi-Computer Setup & Maintenance
 
-When you are ready to save the session's work:
+- **Start in a Practice Project**: Install skills into your current project's `.agents/skills/` first. Installing globally into your user directory (`~/.agents/skills/`) across multiple projects is optional once you are comfortable.
+- **What Travels**: Installing skills only copies execution instructions. Your code, work progress, API keys, and logins do not travel with skills.
+- **Manual Updates**: Running `git pull` on a cloned repository does not update installed skill folders. To update or roll back, back up your local modifications outside discovery paths and replace the complete directory set.
+- **Pre-release Notice**: Version `v0.1.0` is published on GitHub as a pre-release. The GitHub main branch has been updated with bilingual introductions, while v0.1.0 remains the current prerelease and its ZIP package retains earlier documentation; skill execution behavior is unchanged.
 
-```text
-Use $project-day-closeout for a full closeout.
-Organize and commit this task's deliverables, preserve others' edits, and do not push.
-```
+## Support & License
 
-**Full closeout can create local Git commits.** Read-only audit and preparation modes will never commit; Git commits do not imply functional acceptance. The skills never delete or move files by default, never push automatically, and never schedule automated background jobs.
-
-Shortest prompt for Bubugao:
-
-```text
-Use $bubugao to discuss this proposal. Outline key questions
-and verify if existing Context is suitable. Discuss only; do not write files.
-```
-
-## Download and Installation
-
-The first pre-release [v0.1.0 is available](https://github.com/naiman-debug/naiman-skills/releases/tag/v0.1.0). Visit the release page, download **Source code (zip)** under Assets, and copy the required complete skill directories into your user skills directory (`~/.agents/skills`) or project `.agents/skills/`. Keep the downloaded root `LICENSE` file together with the package. The complete collection comprises five folders: the three main skills plus two required closeout helpers (`project-directory-closeout` and `project-git-closeout`). See [RELEASE_NOTES.md](RELEASE_NOTES.md) for full release details. Never copy the repository's root `AGENTS.md` into your workspace.
-
-If a folder with the same name already exists in your destination directory, stop and compare it first. Avoid merging files between different versions.
-
-Post-release verification confirmed that the downloaded v0.1.0 ZIP matches the reviewed 58-file package, and desktop tasks successfully performed read-only checks across explicit paths. Standalone CLI execution, nested automatic discovery, and other operating systems remain unverified; see the [project record](docs/项目记录.md) for full validation scope and remaining limits.
-
-## Updates, Rollback, and Maintenance
-
-GitHub releases do not update installed copies automatically; all updates must be performed manually. When updating, download the chosen release archive, move your existing skill folders to a backup location outside all skill-discovery directories to preserve your local edits, and replace the complete set of folders. Do not merge old and new files together. To roll back, restore the complete previous folder set from backup. Updating or removing a skill does not alter files or commits it previously created.
-
-Public versions are maintained in this repository before being installed in personal environments. For development guidelines, see [CONTRIBUTING.md](CONTRIBUTING.md). Our custom extensions are licensed under the [MIT License](LICENSE) (copyright naiman-debug), while bundled upstream Bubugao content retains [Matt Pocock's MIT License](skills/bubugao/LICENSE.upstream). Please report issues via [Issues](https://github.com/naiman-debug/naiman-skills/issues) or submit improvements via [Pull requests](https://github.com/naiman-debug/naiman-skills/pulls).
+Tested on Codex desktop using explicit skill paths across scoped test cases. Standalone CLI, automatic discovery in nested directories, and other operating systems are not verified; no universal portability is claimed. The three core skills provide complete Chinese and English introductions, while skill execution instructions and supporting references remain primarily in Chinese (see [Project Record](docs/项目记录.md)). Custom additions are licensed under the [MIT License](LICENSE) (copyright naiman-debug), and upstream Bubugao components retain [Matt Pocock's MIT License](skills/bubugao/LICENSE.upstream).

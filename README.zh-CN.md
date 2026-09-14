@@ -1,67 +1,38 @@
-# naiman-skills
+# naiman-skills：换一台电脑，继续用熟悉的 AI 技能
 
-[English](README.md) · [安装与更新](docs/安装与更新.md) · [GitHub 仓库](https://github.com/naiman-debug/naiman-skills) · [Releases](https://github.com/naiman-debug/naiman-skills/releases) · [参与贡献](CONTRIBUTING.md) · [项目记录](docs/项目记录.md)
+[English](README.md) · [安装与更新说明](docs/安装与更新.md) · [GitHub 仓库](https://github.com/naiman-debug/naiman-skills) · [Releases (v0.1.0 预发布)](https://github.com/naiman-debug/naiman-skills/releases) · [参与贡献](CONTRIBUTING.md) · [项目记录](docs/项目记录.md)
 
-这是 Naiman 的个人技能库，分享我为解决自己与 AI 协作时遇到的问题而制作的技能。首版供在本地使用 Codex 的人试用。技能的 `SKILL.md` 指令、模板以及各技能配套文档目前主要使用中文编写，但你也可以让 Codex 以你需要的语言进行交互。
+这是 Naiman 的个人 AI 技能库。主要用于在换电脑或配置新环境时，能够快速把平时用顺手的 AI 工作习惯重新装好。
 
-## 技能 1：项目建档
+## 技能快速选择
 
-刚建空目录时，我经常不知道各类文件该往哪里放，也拿不准到底什么时候该开始规划结构。随着零散的想法、需求、参考资料和演示文件陆续加入，如果事先没有约定，AI 介入后就很容易分不清该读取哪份资料、又该把新内容写到哪里。这个技能会从现有材料出发，沿用项目已有的规则，梳理出各目录的实际用途、项目入口、重要材料的位置和来源，并明确后续的维护方式。无论是项目刚起步，还是中途加入新材料、微调目录，它都只针对受影响的部分做必要整理，不需要每次推翻重来。把它固定成技能，就是为了在目录结构发生变化时，能随时让自己和 AI 知道从哪里开始、文件放在哪里、改完以后还要更新什么。
+| 技能名称 | 适用场景 | 直观效果（示例） | 技能说明 |
+|---|---|---|---|
+| `技能 1：项目建档` | 刚建空目录，或零散笔记、草稿堆在根目录 | 理清当前入口并说明每个目录放什么，不乱挪历史文件 | [项目建档说明](skills/project-startup-standardization/README.md) |
+| `技能 2：项目收工` | 准备收尾或保存阶段进展 | 同步项目原有的进度说明与索引，在授权下对本次改动作本地 Git 提交 | [项目收工说明](skills/project-day-closeout/README.md) |
+| `技能 3：步步高` | 讨论技术方案或功能设计 | 先检查已有术语说明是否适合本次讨论，再逐步问清关键问题、按条件记录重要决定 | [步步高说明](skills/bubugao/README.md) |
 
-## 技能 2：项目收工（打完收工）
+*注：表中效果均为相应授权下的示例；仅在明确授权且准备就绪时才会执行本地 Git 提交。*
 
-每次一项工作做完，虽然相关文件已经修改，但配套的说明、索引、当前进度和下一步计划往往没能同步更新。等到下次重新打开项目，我又得重新翻找上一轮的结果，逐一确认哪些已经做完、哪些还没开始。这个技能会在准备收尾时核对这次做了什么，同步相关说明、索引和进度，明确已完成项和接下来的具体动作。在得到我的明确授权与要求后，它还可以把本任务相关的稳定文件做一次本地 Git 提交，不默认推送，也不混入无关改动。把它做成技能，是想让每次工作结束后都留下清晰的交接记录，方便下次自己或 AI 接着做，不用再从一堆文件里找进度。
+## 让 Codex 帮你安装
 
-## 技能 3：步步高
-
-讨论一个方案时，回答了几个问题，并不意味着已经把关键事情想清楚：还缺什么、下一步该聊什么，往往没有明确的提示。项目里虽然有术语文档，也可能属于旧阶段或另一个业务范围，直接接着写容易把新旧理解混在一起。步步高基于 Matt Pocock 的 [grill-with-docs](https://github.com/mattpocock/skills/tree/3cca18b368ae95cdbdebbff572ccafa662551015/skills/engineering/grill-with-docs) 修改，保留原版逐步访谈、澄清术语和记录重要决定的方式。在此基础上只增加两项能力：**Road 讨论路线**帮助看清已明确内容、关键缺口、下一步和可后续处理的细节；**Context 适用性检查**先核实已有术语文档是否属于本次讨论、仍然有效，再说明如何使用及实际记录位置。它帮助讨论有方向地继续，但不保证保存完整需求，也不自动进入开发。
-
-## 技能列表
-
-- [技能 1：项目建档](skills/project-startup-standardization/README.md)
-- [技能 2：项目收工（打完收工）](skills/project-day-closeout/README.md)
-- [技能 3：步步高](skills/bubugao/README.md)
-
-## 先试一次
-
-按[安装与更新教程](docs/安装与更新.md)安装后，在练习项目中向 Codex 输入：
+这是给具备文件与网络读写权限的 AI 助手的自然语言请求，不是命令行脚本或自动安装程序，执行时可能需要你确认本地权限：
 
 ```text
-使用 $project-startup-standardization，先看看这个项目有哪些材料，
-建议最少需要的目录、入口和索引。这次先只读，不创建文件。
+请从 https://github.com/naiman-debug/naiman-skills/releases/tag/v0.1.0 下载 v0.1.0 源码 ZIP 并解压到技能发现目录之外的临时位置。
+复制前请同时检查当前项目 `.agents/skills/` 与所有实际使用的用户技能发现路径（如 `~/.agents/skills/`）；若有同名目录请在复制前立即停止并提示比对，严禁覆盖或重复安装。
+确认无同名后，将 5 个完整技能目录（`skills/project-startup-standardization`、`skills/project-day-closeout`、`skills/project-directory-closeout`、`skills/project-git-closeout`、`skills/bubugao`）复制到当前项目 `.agents/skills/` 下。
+完整保留各目录内全部文件（含 agents、references、assets、模板）及下载包根目录 LICENSE，切勿复制根目录 AGENTS.md。
+复制后报告实际读取的 SKILL.md 路径与 metadata.version，并执行首次只读检查，不修改任何业务文件或 Git 状态。
 ```
 
-```text
-使用 $project-day-closeout，只检查今天的工作和接续位置，
-不修改文件，不暂存，不提交。告诉我哪些已完成，哪些还缺。
-```
+## 跨电脑使用与维护说明
 
-确认需要实际保存本段工作时，再说：
+- **先在练习项目试用**：推荐首选在当前项目的 `.agents/skills/` 安装；体验熟悉后，再根据需要决定是否安装到用户全局目录（`~/.agents/skills/`）。
+- **哪些内容不随技能迁移**：安装技能仅复制技能指令；你的项目业务文件、开发进度、账号与登录凭据不会跟着技能迁移。
+- **手动更新与回退**：对克隆仓库执行 `git pull` 不会更新已安装的副本。更新或回退时，请将本地修改备份到发现路径之外，再整体替换完整技能目录。
+- **预发布版本说明**：`v0.1.0` 为预发布版本。GitHub main 分支现已更新中英双语介绍；v0.1.0 仍为现有的预发布版本，其 ZIP 下载包保留早期文档，技能实际执行行为保持不变。
 
-```text
-使用 $project-day-closeout 完整收工。
-仅整理和提交本次任务的成果，保留其他人的改动，不推送远程。
-```
+## 验证与许可
 
-**完整收工可能创建本地 Git 提交。** 只检查与只准备模式不会提交；Git 提交也不等于功能已验收。技能不默认删除、迁移文件，不自动推送，不创建定时任务。
-
-步步高的最短调用示例：
-
-```text
-使用 $bubugao 帮我讨论这个方案，先说明还有哪些关键问题，
-并检查已有 Context 是否适用。这次只讨论，不写文件。
-```
-
-## 下载和安装
-
-首个预发布版 [v0.1.0 已上线](https://github.com/naiman-debug/naiman-skills/releases/tag/v0.1.0)。打开版本页，在 Assets 中下载 **Source code (zip)**，按教程将需要的完整技能目录复制到用户级目录（`~/.agents/skills`）或项目级目录（`.agents/skills/`）。请将下载包中的根目录 `LICENSE` 文件一并保留。全套技能共包含五个目录：三个主技能以及两个收工辅助技能（`project-directory-closeout` 与 `project-git-closeout`）；完整说明见 [RELEASE_NOTES.md](RELEASE_NOTES.md)。切勿将仓库根目录的 `AGENTS.md` 复制到你的项目中。
-
-如果目标位置已存在同名目录，请先停止并比对差异，不要直接混叠合并两个版本。
-
-发布后验证确认下载的 v0.1.0 ZIP 与评审过的 58 个文件一致，并在桌面任务中通过显式路径顺利完成了三主技能的只读调用验证。独立的 CLI 命令行调用、嵌套路径下的自动发现以及其他操作系统暂未验证；详见[项目记录](docs/项目记录.md)。
-
-## 更新与维护
-
-GitHub 的新发布不会自动更新已安装的副本，所有更新需手动进行。下载新版本后，请先将现有技能目录备份到所有技能发现路径之外以保留你的本地修改，并采用整目录替换而非新旧文件混叠合并。如需回退，从备份中恢复上一版本的完整目录即可。更新或删除技能不会撤销此前生成的文件或 Git 提交。
-
-公开版本在本仓库维护，再按需安装到个人环境。开发与提交流程见[贡献指南](CONTRIBUTING.md)。本仓库扩展采用 [MIT 许可证](LICENSE)（版权归 naiman-debug 所有），步步高随附的上游内容保留 [Matt Pocock 的 MIT 许可](skills/bubugao/LICENSE.upstream)。欢迎通过 [Issues](https://github.com/naiman-debug/naiman-skills/issues) 报告问题或通过 [Pull requests](https://github.com/naiman-debug/naiman-skills/pulls) 提交改进。
+已在 Codex 桌面端通过显式路径验证了受控测试场景；独立 CLI、多层嵌套目录自动发现及其他操作系统均未经验证，不承诺通用可移植性。三大核心技能均提供完整的中英文介绍，内部执行指令与配套参考文档仍以中文为主（详见[项目记录](docs/项目记录.md)）。本仓库扩展采用 [MIT 许可证](LICENSE)（版权归 naiman-debug 所有），步步高随附的上游内容保留 [Matt Pocock 的 MIT 许可证](skills/bubugao/LICENSE.upstream)。
