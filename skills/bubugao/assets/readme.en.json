@@ -1,0 +1,267 @@
+{
+  "format": "naiman.readme-card",
+  "format_version": 1,
+  "language": "en",
+  "theme": {
+    "page": "#ffffff",
+    "text": "#202c35",
+    "card": "#f7f7f2",
+    "accent": "#43835a",
+    "muted": "#53685b",
+    "row_colors": [
+      "#e9f2e7",
+      "#edf0f9",
+      "#f3edf6"
+    ],
+    "radius": 12,
+    "typography": {
+      "font_family": "\"Microsoft YaHei\", \"PingFang SC\", \"Noto Sans CJK SC\", sans-serif",
+      "body_size": 16,
+      "body_weight": 400,
+      "heading_size": 24,
+      "heading_weight": 600,
+      "card_title_size": 16,
+      "card_title_weight": 600,
+      "comparison_size": 16,
+      "label_size": 16,
+      "body_line_height": 1.75,
+      "card_text_size": 16
+    },
+    "layout": {
+      "page_max_width": 900,
+      "card_padding": 24,
+      "comparison_row_height": 40,
+      "card_radius": 12
+    }
+  },
+  "blocks": [
+    {
+      "type": "heading",
+      "text": "Bubugao"
+    },
+    {
+      "type": "link_list",
+      "items": [
+        {
+          "label": "English",
+          "href": "README.en.md",
+          "preview_href": "../../docs/previews/bubugao.en.html"
+        },
+        {
+          "label": "中文",
+          "href": "README.md",
+          "preview_href": "../../docs/previews/bubugao.html"
+        }
+      ]
+    },
+    {
+      "type": "comparison_card",
+      "label": "bubugao",
+      "badge": {
+        "text": "Step-by-step discussion · Recorded on demand"
+      },
+      "title": "Clarify ideas step by step and record them",
+      "subtitle": "Ask key questions step by step to clarify the discussion roadmap.",
+      "columns": {
+        "before": "Common challenges",
+        "after": "How Bubugao helps"
+      },
+      "rows": [
+        {
+          "before": "Assuming the discussion is done after just a few exchanges",
+          "after": "Probing details round by round in sequential order",
+          "icon": "🧭",
+          "tone": 0
+        },
+        {
+          "before": "Discussions easily veer off track",
+          "after": "Using a roadmap to stay focused on current priorities",
+          "icon": "🛣️",
+          "tone": 1
+        },
+        {
+          "before": "Tossing new conclusions randomly into old documents",
+          "after": "Checking existing records before deciding where to write",
+          "icon": "📑",
+          "tone": 2
+        }
+      ],
+      "footer": "Discussion example; does not imply automatic saving of all requirements."
+    },
+    {
+      "type": "section",
+      "title": "Introduction to Bubugao",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Bubugao is built on Matt Pocock's open-source project grill-with-docs. It preserves the core capabilities of the original: asking questions in rounds based on decision dependencies, proactively offering recommendations, verifying existing project facts, clarifying terminology definitions, and recording decisions when conditions are met."
+        },
+        {
+          "type": "paragraph",
+          "text": "Compared to the original, Bubugao adds only two features: organizing a concise discussion route (Road), and checking whether existing terminology files (Context) are still applicable to the current scenario before writing anything down. It introduces no complex workflows or redundant orchestration frameworks."
+        },
+        {
+          "type": "feature_list",
+          "items": [
+            {
+              "label": "Dependency-driven probing",
+              "text": "It will not skip ahead to ask minor dependent questions before major prerequisites are settled."
+            },
+            {
+              "label": "Verifying existing records",
+              "text": "When encountering an existing terminology file, it checks whether its content is appropriate for the current discussion, rather than blindly appending new content just because the filename contains Context."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "section",
+      "title": "Why We Created Bubugao",
+      "separator_before": true,
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "When discussing ideas with AI, many people run into a common scenario: after sharing just two or three sentences, the AI responds agreeably, and both sides assume everything is settled. But when it comes time to implement, they realize fundamental concepts were left vague, critical use cases were overlooked, and prerequisite dependencies were never sorted out. At other times, discussions get sidetracked by minor, non-urgent details, losing sight of the main storyline. And once a new conclusion is finally reached, the AI might directly append text to an outdated, unmaintained document where it gets lost forever."
+        },
+        {
+          "type": "paragraph",
+          "text": "Bubugao is designed to solve these everyday hassles. It asks you questions round by round based on logical dependencies, proactively consulting existing project files when needed to establish facts (or clearly stating what is unknown if permissions are unavailable). Before writing anything down, it verifies whether existing terminology files are still suitable. It also maintains a concise discussion roadmap (Road) that clearly lays out what is already settled, what core questions remain, what to discuss next, and what can be deferred—giving you a clear view of what is decided and what is still missing."
+        }
+      ]
+    },
+    {
+      "type": "section",
+      "title": "Daily Usage",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Say directly to Codex:"
+        },
+        {
+          "type": "feature_list",
+          "items": [
+            {
+              "label": "Start a discussion",
+              "text": "Use Bubugao to help me clarify this idea."
+            },
+            {
+              "label": "Read-only review",
+              "text": "Use Bubugao to see what's missing in this plan. Just discuss for now without modifying any files."
+            },
+            {
+              "label": "Resume a discussion",
+              "text": "Continue our discussion with Bubugao. First check what remained undecided last time."
+            },
+            {
+              "label": "Pause and checkpoint",
+              "text": "Bubugao, let's pause here for today. Record what's settled and where to pick up next time."
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "If your environment does not recognize the skill name, you can select it directly from your list of installed skills or type $bubugao to proceed. This skill requires actual file access permissions when writing records to files; if you are only discussing plans in read-only mode, you can proceed directly."
+        }
+      ]
+    },
+    {
+      "type": "section",
+      "title": "Let Codex Install It for You",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Copy the following text and send it to Codex:"
+        },
+        {
+          "type": "copy_field",
+          "value": "Please first read and follow the installation guide https://github.com/naiman-debug/naiman-skills/blob/main/docs/安装与更新.md . Before copying, check for an existing same-named bubugao skill in both the project skill discovery directory and actual user-level skill discovery locations, and stop immediately if a conflict is found. Copy the complete skills/bubugao from the v0.1.0 release package (including upstream materials and license) into .agents/skills/bubugao in the current practice project, and do not copy the root AGENTS.md. After installation, perform an initial read-only check and report the loaded path and version.",
+          "label": "Copy installation prompt"
+        }
+      ]
+    },
+    {
+      "type": "section",
+      "title": "Example: How a Personal Reading List Is Discussed",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "To illustrate the specific questioning process, here is a fictional discussion example for a personal reading list."
+        },
+        {
+          "type": "paragraph",
+          "text": "The user previously established two explicit prerequisites: the reading list is stored only on the local computer, and book titles are entered manually. Building on this foundation, Bubugao begins organizing the discussion road: the current goal is to clarify the basic usage of the reading list; the immediate next step is to define reading status values for books; as for the UI color theme mentioned offhand by the user, Bubugao suggests treating it as a deferred item to revisit once the primary logic is clear."
+        },
+        {
+          "type": "paragraph",
+          "text": "Next, Bubugao presents a concrete use case for the user to decide: \"You mentioned three statuses: Want to Read, Reading, and Completed. If you stop reading a book halfway through, should it count as Completed with progress in notes, or should we add a separate 'Abandoned' status? This affects how statistics will be calculated later.\" Once the user decides to add \"Abandoned\", Bubugao organizes the term definition in preparation for recording."
+        },
+        {
+          "type": "feature_list",
+          "items": [
+            {
+              "label": "Respecting established premises",
+              "text": "Builds on the user's confirmed premises of local storage and manual input, without fabricating assumptions or altering them without consent."
+            },
+            {
+              "label": "Offering concrete options for your decision",
+              "text": "Turns vague status transitions into concrete scenario options, leaving the final decision to you."
+            },
+            {
+              "label": "Distinguishing suggested deferrals from confirmed deferrals",
+              "text": "The UI color theme is merely a suggestion from the assistant to defer; it is not treated as a settled decision until the user explicitly confirms it."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "section",
+      "title": "Output Destinations and File Guidelines",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Content generated during discussions has designated destinations. Before recording a discussion road (Road), the specific target location is shown in advance. When inspecting terminology files (Context), the corresponding path and suitability assessment are also provided. If ownership or placement is unclear, writes dependent on that placement will pause until confirmed with you. Key architectural decisions are recorded as ADRs only when they meet criteria and with your explicit permission."
+        },
+        {
+          "type": "feature_list",
+          "items": [
+            {
+              "label": "Dedicated Terminology Files (Context)",
+              "text": "Used to store domain vocabulary and term explanations (such as CONTEXT.md), without any implementation details. If the project contains a domain map file (CONTEXT-MAP.md), it follows the map to locate the terminology file for the relevant domain; if there is no map, it checks the terminology file in the root directory. If the project has none of these files, it does not create empty placeholder files in advance—they are created on demand only when terms are actually finalized."
+            },
+            {
+              "label": "Architecture Decision Records (ADR)",
+              "text": "ADR stands for Architecture Decision Record. Writing an ADR is suggested only when three criteria are met simultaneously: first, the decision is difficult to reverse later; second, future readers will wonder why this choice was made; third, a genuine tradeoff was made among multiple viable alternatives. Routine decisions do not warrant an ADR."
+            },
+            {
+              "label": "Discussion Roadmap (Road)",
+              "text": "Tracks where the discussion currently stands, what remains, and what comes next. When write permission is granted, it prioritizes reusing an already approved location from the current session, writing to ROAD.md in the target project only if no suitable location exists. In read-only mode, the roadmap, unresolved questions upon pausing, and next steps remain solely in the chat response without modifying files."
+            },
+            {
+              "label": "Recording Boundaries",
+              "text": "Routine requirement details are not guaranteed to be fully saved into documents. Completing a discussion does not imply code will be written automatically, nor will it modify or delete any of your other skills."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "link_list",
+      "items": [
+        {
+          "label": "Installation and Updates (Chinese)",
+          "href": "https://github.com/naiman-debug/naiman-skills/blob/main/docs/安装与更新.md"
+        },
+        {
+          "label": "Upstream Pinned Version",
+          "href": "https://github.com/mattpocock/skills/tree/3cca18b368ae95cdbdebbff572ccafa662551015"
+        },
+        {
+          "label": "Upstream MIT License",
+          "href": "https://github.com/naiman-debug/naiman-skills/blob/main/skills/bubugao/LICENSE.upstream"
+        }
+      ]
+    }
+  ]
+}
