@@ -1,0 +1,198 @@
+{
+  "format": "naiman.readme-card",
+  "format_version": 1,
+  "language": "en",
+  "theme": {
+    "page": "#ffffff",
+    "text": "#202c35",
+    "card": "#f7f7f2",
+    "accent": "#43835a",
+    "muted": "#53685b",
+    "row_colors": [
+      "#e9f2e7",
+      "#edf0f9",
+      "#f3edf6"
+    ],
+    "radius": 12,
+    "typography": {
+      "font_family": "\"Microsoft YaHei\", \"PingFang SC\", \"Noto Sans CJK SC\", sans-serif",
+      "body_size": 16,
+      "body_weight": 400,
+      "heading_size": 24,
+      "heading_weight": 600,
+      "card_title_size": 16,
+      "card_title_weight": 600,
+      "comparison_size": 16,
+      "label_size": 16,
+      "body_line_height": 1.75,
+      "card_text_size": 16
+    },
+    "layout": {
+      "page_max_width": 900,
+      "card_padding": 24,
+      "comparison_row_height": 40,
+      "card_radius": 12
+    }
+  },
+  "blocks": [
+    {
+      "type": "heading",
+      "text": "Project Startup"
+    },
+    {
+      "type": "link_list",
+      "items": [
+        {
+          "label": "English",
+          "href": "README.en.md",
+          "preview_href": "../../docs/previews/project-startup-standardization.en.html"
+        },
+        {
+          "label": "中文",
+          "href": "README.md",
+          "preview_href": "../../docs/previews/project-startup-standardization.html"
+        }
+      ]
+    },
+    {
+      "type": "comparison_card",
+      "label": "Quick Overview",
+      "badge": {
+        "text": "v0.1.0"
+      },
+      "title": "Help You and AI Know Where to Start",
+      "subtitle": "Clarify directory purposes, entry points, and read/write locations across existing files",
+      "columns": {
+        "before": "Before Organizing",
+        "after": "How This Skill Helps"
+      },
+      "rows": [
+        {
+          "before": "Files pile up over time, leaving you unsure which file to read first and where to write new content",
+          "after": "Clarifies directory purposes and entry points, establishing clear read/write locations",
+          "icon": "📁",
+          "tone": 1
+        },
+        {
+          "before": "Worry about messing up existing files or being forced to adopt heavy documentation templates",
+          "after": "Performs a read-only inventory first, adding only essential entry documentation upon confirmation",
+          "icon": "🧭",
+          "tone": 2
+        }
+      ],
+      "footer": "Does not automatically move or delete existing files, does not automatically commit to Git, and keeps organization lightweight and on demand."
+    },
+    {
+      "type": "section",
+      "title": "Why This Skill Is Needed",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "When starting with an empty directory, we often do not know where to put different types of files or when to start structuring the project. As scattered ideas, requirements, reference materials, and demo files accumulate over time without prior conventions, AI assistants can easily get confused about which documents to read and where to write new content."
+        },
+        {
+          "type": "paragraph",
+          "text": "This skill starts from existing materials, follows existing project naming conventions and rules, distinguishes active content from historical references, and clarifies directory purposes, project entry points, and key reference sources. This organization workflow leaves source materials intact while updating navigation to provide clear guidance on where to read and write. When new content is added later, users or AI can update existing descriptions only when entry points change—maintaining just the affected sections without starting over each time."
+        }
+      ]
+    },
+    {
+      "type": "section",
+      "title": "Organization Method and Output Details",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "During organization, existing documentation or indexes are reused whenever possible and supplemented on demand. For empty directories, minimal entry files are created only after confirmation, avoiding heavy pre-packaged templates."
+        },
+        {
+          "type": "paragraph",
+          "text": "Original materials are preserved intact without rewriting historical records into new conclusions. The initial read-only inspection only reports findings and recommendations; the organization process is considered complete only after receiving authorization and verifying written entry files."
+        }
+      ]
+    },
+    {
+      "type": "section",
+      "title": "Fictional Example",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Here is a fictional scenario illustrating the actual organization workflow:"
+        },
+        {
+          "type": "paragraph",
+          "text": "Suppose in a practice project, the root directory is cluttered with draft requirements, test scripts, and reference materials, leading AI to mistakenly reference outdated drafts when answering questions. Using Project Startup, a read-only inventory is performed first; upon confirmation, the main entry point is pointed to project documentation, clearly designating where active requirements and reference materials live. When test materials are added later, only the corresponding directory descriptions and indexes receive localized updates."
+        }
+      ]
+    },
+    {
+      "type": "section",
+      "title": "Daily Usage",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "You can directly send natural language requests like:"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Use Project Startup to inventory directories and materials first—read-only, no modifications.",
+            "Add necessary entry points and directory descriptions based on the confirmed suggestions.",
+            "New materials were added; use Project Startup to organize only the affected descriptions."
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "If your assistant does not recognize the prompt, you can add $project-startup-standardization to your conversation. Different tools vary in their ability to automatically recognize skill names; if it still does not respond, you can directly provide the file path to the installed SKILL.md file."
+        }
+      ]
+    },
+    {
+      "type": "section",
+      "title": "What Changes and What Does Not",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "The skill writes necessary entry points, directory descriptions, or indexes only after user confirmation. It will not automatically move, rename, or delete existing files, nor will it modify original input documents."
+        },
+        {
+          "type": "paragraph",
+          "text": "Organization does not automatically commit code or trigger releases. Completing organization only means clear directory entry points and record relationships have been established; it does not replace functional testing or business acceptance."
+        }
+      ]
+    },
+    {
+      "type": "section",
+      "title": "Installation and Reuse",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "To reuse this skill across multiple computers or practice projects, you can directly copy the prompt:"
+        },
+        {
+          "type": "copy_field",
+          "label": "Installation Prompt",
+          "value": "Please first read and follow the installation guide: https://github.com/naiman-debug/naiman-skills/blob/main/docs/安装与更新.md\nFrom the v0.1.0 package specified in the guide, copy the complete skills/project-startup-standardization directory into .agents/skills/project-startup-standardization of the practice project. Keep the downloaded package and its root LICENSE outside skill discovery directories rather than inside the installed skill folder. Before copying, perform conflict checks per the guide and pause for confirmation if an installed skill with the same name already exists. Never copy the repository root AGENTS.md file. After installation, report the actual installed path and version number, and perform an initial read-only inspection."
+        }
+      ]
+    },
+    {
+      "type": "section",
+      "title": "Related Documentation",
+      "blocks": [
+        {
+          "type": "link_list",
+          "items": [
+            {
+              "label": "Installation and Update Guide (Chinese)",
+              "href": "../../docs/安装与更新.md"
+            },
+            {
+              "label": "Skill Definition File",
+              "href": "SKILL.md"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
