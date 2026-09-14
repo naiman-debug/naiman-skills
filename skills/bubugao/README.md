@@ -1,31 +1,78 @@
 # 步步高
 
-讨论一个方案时，你可能已经回答了几个问题，却不知道还有哪些关键事项没想清楚。项目里即使有术语文档，也不一定适合这次讨论。步步高是基于 **Matt Pocock 的原版 grill-with-docs 修改的版本**，保留其访谈、术语澄清和重要决策记录方式，只补充下面两项能力。
+[English](README.en.md) · [中文](README.md)
 
-- **Road 讨论路线**：简短说明已明确内容、关键缺口、下一步和可后续处理的细节；随答案调整，不变成开发任务表。
-- **Context 适用性检查**：先判断术语文档属于哪个领域、是否有效、有无冲突，再说明沿用、局部修订、仅参考或待确认，并展示实际文件位置。
+**一步步把想法聊清楚并记下来**
 
-## 怎样使用
+按步骤问清关键问题，理清讨论路线。
 
-复制完整 bubugao 目录到所用客户端的技能目录，在目标项目显式调用：
+![一步步把想法聊清楚并记下来](assets/readme-card.zh-CN.png)
+
+- 聊两句就以为讨论完了 → 🧭 按先后顺序分轮问细节
+- 讨论容易越聊越偏 → 🛣️ 用路线盯紧当前重点
+- 新结论随手塞进旧文档 → 📑 先查旧记录再决定写哪
+
+讨论示例，不代表自动保存全部需求。
+
+## 步步高技能介绍
+
+步步高基于 Matt Pocock 的开源项目 grill-with-docs 制作。它保留了原版的核心能力：按照决定的依赖关系分轮提问、主动给出推荐、查证项目已有事实、理清名词定义，并在符合条件时记录决定。
+
+相比原版，步步高只增加了两项功能：一是梳理简短的讨论路线（Road），二是动笔前检查既有的术语文件（Context）是否还适用于当前场景。它没有增加复杂的流程，也没有引入多余的编排体系。
+
+- **按依赖分步问**：前面的大前提没有定下来之前，不会跳过去问依赖它的细小问题。
+- **核对旧记录**：看到旧的术语文件时，会检查内容是否适合当前讨论，不会因为文件名叫 Context 就盲目把新内容追加进去。
+
+---
+
+## 为什么做步步高
+
+很多人在跟 AI 讨论想法时，容易出现这种情况：自己刚说了两三句话，AI 就顺着回答，双方都以为事情已经定下来了。可等到实际去做时，才发现一些基本概念没有说清楚，关键使用场景想漏了，前后的依赖关系也没理顺。有时聊着聊着，大家还会被一些不着急的小细节吸引过去，把最重要的主线丢在了一边。等到好不容易有了新结论，AI 又可能直接把文字追加进早已没人维护的旧文档里，以后想找都找不到。
+
+步步高就是用来解决这些日常麻烦的。它会根据事情的前后关联，一轮一轮向你提问，并在需要时主动查阅现有文件来弄清事实；如果当前环境没有权限查阅，它会如实说明未知。在动笔记录前，它会先核对已有的术语文件是否还能使用，同时维护一份简短的讨论路线（Road），把已经确定的内容、剩下的核心问题、下一步该聊什么以及可以稍后再看的事情理得清清楚楚，让你清楚知道当前已经定下了什么、还缺什么。
+
+## 日常怎么用
+
+直接对 Codex 说：
+
+- **开始讨论**：用步步高帮我把这个想法聊清楚。
+- **只读查看**：用步步高看看这个方案还漏了什么，先聊，不改文件。
+- **接续讨论**：继续用步步高讨论，先看上次还有什么没确定。
+- **暂停与留痕**：步步高，今天先到这里，记下已经确定的内容和下次从哪里继续。
+
+若当前环境未识别中文技能名，可直接从已安装技能列表中选择或输入 $bubugao 继续；本技能记录文件时需要实际文件访问权限，若仅在只读模式下讨论方案则可直接进行。
+
+## 让 Codex 帮你安装
+
+复制下面这段话发给 Codex：
 
 ```text
-使用 $bubugao 帮我讨论这个方案。
-先说明讨论路线，并检查项目已有的 Context 是否适用。
+请先读取并遵循安装指南 https://github.com/naiman-debug/naiman-skills/blob/main/docs/安装与更新.md 。将 v0.1.0 发布包里包含上游资料与许可的完整 skills/bubugao 复制到当前练习项目的 .agents/skills/bubugao，复制前检查项目和实际用户目录同名，遇冲突立即停止，切勿复制根目录 AGENTS.md。安装后执行首次只读检查并报告加载路径与版本。
 ```
 
-需要只读时加上“这次只讨论，不写文件”。允许记录时，Road 优先复用适合本次讨论的接续位置，没有则按项目规则使用 ROAD.md 或具名专题位置。术语按原版进入 CONTEXT.md，重要取舍符合原版条件时进入 ADR。文件按需生成，不预建一整套目录。
+## 示例：个人书单是怎样讨论的
 
-Road 只保存必要进度，普通需求不保证全部落盘；本技能不承诺形成完整 PRD，也不自动进入实现。它没有此前讨论的三份扩展模板。
+为了说明具体的提问过程，这里给出一个关于个人书单的虚构讨论示例。
 
-## 原版与依赖
+用户之前已经明确提出过两项前提：书单只保存在本地电脑，书名由自己手动输入。在此基础上，步步高开始整理讨论路线：当前目标是理清书单的基本用法；接下来的第一步是确定图书的几种阅读状态；至于用户随口提起的界面主题配色，步步高建议先作为延期项，等主要逻辑清楚后再看。
 
-这是我们的两项补充版本，英文技能名为 bubugao，中文显示名为“步步高”。上游原版仍叫 grill-with-docs，我们为其使用的中文显示名是“边聊边记”；两者可并存，请用英文调用名区分。包内附带原版 grilling、domain-modeling 及其 CONTEXT/ADR 模板，不要求另外安装依赖，不读取作者的个人技能源目录。
+随后，步步高提出具体的使用场景请用户选择：“你提到了想读、在读和已读三种状态。如果一本书你读了一半不想读了，是直接算作已读并在备注写进度，还是单独增加一个‘弃读’状态？这会影响以后的统计方式。”用户决定增加“弃读”后，步步高便将这个名词定义整理好，准备后续记录。
 
-上游来源：[mattpocock/skills 固定版本](https://github.com/mattpocock/skills/tree/3cca18b368ae95cdbdebbff572ccafa662551015)，原始入口及依赖文件保存在 references/upstream 中，内容未改。三个原版入口在包内命名为 UPSTREAM-SKILL.md，避免被宿主当作额外技能自动发现；原始名称均为 SKILL.md。新增规则仅在本包 SKILL.md 中。原作者版权与许可见 [LICENSE.upstream](LICENSE.upstream)，本仓库扩展采用 MIT。
+- **尊重已知前提**：将用户已经确认的本地保存与手动输入作为基础，不凭空猜测或擅自改动。
+- **给出选项供你决定**：把含糊的状态流转变成具体的场景选项，由你来做最终选择。
+- **区分建议延期与确认延期**：界面配色只是助手建议延期处理，在用户正式确认前不会当作已定结论。
 
-已纳入本仓库准备发布的技能列表，当前仍为本地候选，尚未在 GitHub 正式发布。静态检查与文件比对不保证真实多轮访谈不会漂移。
+## 记录去向与文件说明
 
-## English
+讨论中产生的内容有各自的去向。在记录讨论路线（Road）前会先展示具体位置，检查术语文件（Context）时也会给出对应位置与适用性判断；如果归属不明确，会先暂停依赖该归属的写入并向你确认；重要的决策则会在符合条件且获得你的权限后记录为 ADR。
 
-Bubugao extends the original grill-with-docs with only a compact discussion Road and a Context suitability check. Original interviewing, glossary and ADR guidance is bundled unchanged with attribution. No separate skill dependencies are needed. Road is not a full requirements specification; implementation remains a separate task. Invoke explicitly with `$bubugao`.
+- **专用术语文件（Context）**：用于存放业务名词和术语解释（如 CONTEXT.md），里面完全不放实现细节。如果项目里有地图文件（CONTEXT-MAP.md），就顺着地图查找对应领域的术语文件；如果没有地图，就核对根目录下的术语文件。如果项目里没有这些文件，也不会提前创建一堆空文件，只有等真正有名词定下来时才按需建立。
+- **重要决定记录（ADR）**：ADR 是架构决策记录（Architecture Decision Record）的英文缩写。只有同时符合三个条件时才会建议写入：一是这个决定以后很难轻易改回去；二是以后别人看到会好奇为什么这么做；三是当时在好几种真实方案里做了取舍。普通决定不写 ADR。
+- **讨论路线（Road）**：记录当前聊到哪里、剩下什么以及下一步。在获得记录许可时，优先复用本次讨论已有的获准位置，没有合适位置才写入目标项目的 ROAD.md；如果是只读模式，路线及暂停时的未决问题与下一步均只保留在聊天回复中，不写文件。
+- **记录的边界**：普通的需求细节不会保证全部保存进文档；讨论结束也不表示会自动去写代码，更不会修改或删除你的其他技能。
+
+## English summary
+
+Bubugao is a conversational interview skill based on Matt Pocock's upstream grill-with-docs, adding only a 4-part Road discussion route and Context suitability checks. It helps clarify designs through dependency-driven probing and can record terms and ADR decisions when permitted, without promising complete requirements saving or automatic implementation.
+
+[安装与更新](https://github.com/naiman-debug/naiman-skills/blob/main/docs/安装与更新.md) · [上游固定版本](https://github.com/mattpocock/skills/tree/3cca18b368ae95cdbdebbff572ccafa662551015) · [上游 MIT 许可](https://github.com/naiman-debug/naiman-skills/blob/main/skills/bubugao/LICENSE.upstream)
