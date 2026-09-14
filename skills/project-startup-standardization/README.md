@@ -1,25 +1,65 @@
-# 项目初始化与标准化
+# 项目建档
 
-版本见本目录 SKILL.md 的 metadata.version；是否已发布以仓库 Release 为准。
+[English](README.en.md) · [中文](README.md)
 
-## 用途
+**让自己和 AI 知道从哪里开始**
 
-为新项目或存量项目建立可持续维护的入口、目录职责、重要材料或产物的索引、来源和状态关系。
+梳理现有材料用途，明确读取入口与记录位置
 
-## 使用条件
+![让自己和 AI 知道从哪里开始](assets/readme-card.zh-CN.png)
 
-先有明确项目根目录和当前请求。存在 AGENTS、README、索引或其他责任文件时先沿用；空目录没有这些文件也可使用，从用户已确认的目的和现有材料确定最小范围，并说明未知部分。
+- 文件越积越多，不知先读哪份与写去哪 → 📁 理清各目录用途与入口，明确读写位置
+- 担心改乱已有文件，或被迫套用复杂文档 → 🧭 先只读盘点，经确认后补充必要入口说明
 
-## 依赖
+不自动移动删除存量文件，不自动提交Git，按需轻量整理。
 
-没有必需的外部技能、安装器或运行时依赖。请复制本技能的完整目录，保留 SKILL.md、agents、assets 和 references；模板和参考均在包内，按项目需要读取。
+## 为什么需要这个技能
 
-## 示例
+刚建空目录时，我们经常不知道各类文件该往哪里放，也拿不准何时开始规划结构。随着零散的想法、需求、参考资料和演示文件陆续加入，如果事先没有约定，AI介入后就很容易分不清该读取哪份资料、又该把新内容写到哪里。
 
-“项目已经有一批需求材料、原始数据和演示文件。请先盘点根目录和 README，在不移动历史文件的前提下，建立一个能找到当前入口、重要材料、来源和维护责任的最小结构。”
+这个技能会从现有材料出发，沿用项目既有命名与规则，区分当前有效内容与历史参考，梳理出各目录用途、项目入口与重要资料来源。它不会移动或修改原始文件，而是明确指引在哪里读写。后续新增内容时，由继续工作的使用者或AI在入口变化时更新现有说明，仅维护受影响部分，无需每次推翻重来。
 
-## 行为边界
+## 整理方式与输出说明
 
-不替用户决定产品方案，不自动建立整套文档、profile 或任务卡，不批量移动、改名、归档或删除已有文件，也不把整理结果说成业务验收或真实运行证明。
+整理时优先复用既有说明或索引，按需补充。若是空目录，则在确认后建立最小入口，不预先套用繁复模板。
 
-安装与更新的通用步骤见完整下载包根目录下的 docs/安装与更新.md。仅安装本技能目录不会自动包含仓库说明；更新时应从选定版本的下载包取出完整技能目录，不只替换 SKILL.md。
+原始资料原样保留，不把旧记录改写为新结论。只读首检结束后仅报告盘点结果与建议，在获得授权并写入回读后才算完成整理。
+
+## 虚构示例
+
+以下为一个虚构的示意场景，展示实际整理流程：
+
+假设在练习项目中，根目录下混杂着需求草稿、测试脚本与参考资料，提问时容易引用过时草稿。使用本技能完成只读盘点后，在确认下将主入口指向项目说明，标明有效需求与参考资料的读取位置。后续增加测试材料时，也仅对对应目录和索引做局部更新。
+
+## 日常怎么用
+
+你可以直接发送以下自然语言指令：
+
+- 用项目建档先盘点目录和资料，只读不修改；
+- 按刚确认的建议补齐必要入口和目录用途说明；
+- 新增了资料，用项目建档只整理受影响的说明。
+
+如果直接说中文助手没能理解，你可以在对话里加上 $project-startup-standardization；不同工具对技能名称的自动识别能力不同，如果还是没有反应，可以直接把已安装的 SKILL.md 文件路径发给它。
+
+## 哪些会改变，哪些不会改变
+
+技能仅在确认后写入必要的入口、目录说明或索引，不自动移动、改名或删除存量文件，也不修改原始输入。
+
+整理不自动执行代码提交或发布，整理完成仅代表建立了清晰的目录入口与记录关系，不代替业务功能验收。
+
+## 安装与复用
+
+在多台电脑或练习项目中复用时，可直接复制指令：
+
+```text
+请先读取并遵循安装指南：https://github.com/naiman-debug/naiman-skills/blob/main/docs/安装与更新.md
+从指南指定的 v0.1.0 源码包中，将 skills/project-startup-standardization 完整目录及许可文件安装到当前练习项目的 .agents/skills/project-startup-standardization。若遇到同名规则请先暂停确认，不复制根目录 AGENTS。安装完成后报告实际入口路径与版本号，并先做一次只读首检。
+```
+
+## English Summary
+
+When starting a new project or gathering notes, it is often difficult for both developers and AI assistants to locate the right entry file or know where new outputs belong. This skill inspects existing materials in read-only mode, preserves original files, and establishes minimal entry points and folder descriptions upon confirmation. It distinguishes current tasks from historical references and specifies when future updates are needed. When new files are added, it updates only affected descriptions without moving existing files, ensuring safe and lightweight project organization.
+
+## 相关文档
+
+[安装与更新指南](../../docs/安装与更新.md) · [技能定义文件](SKILL.md)
