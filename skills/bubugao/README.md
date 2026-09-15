@@ -42,12 +42,12 @@
 
 若当前环境未识别中文技能名，可直接从已安装技能列表中选择或输入 $bubugao 继续；本技能记录文件时需要实际文件访问权限，若仅在只读模式下讨论方案则可直接进行。
 
-## 让 Codex 帮你安装
+## 下载和安装
 
 复制下面这段话发给 Codex：
 
 ```text
-请先读取并遵循安装指南 https://github.com/naiman-debug/naiman-skills/blob/main/docs/安装与更新.md 。将 v0.1.0 发布包里包含上游资料与许可的完整 skills/bubugao 复制到当前练习项目的 .agents/skills/bubugao，复制前检查项目和实际用户目录同名，遇冲突立即停止，切勿复制根目录 AGENTS.md。安装后执行首次只读检查并报告加载路径与版本。
+请按照 https://github.com/naiman-debug/naiman-skills 的安装指南，将步步高（skills/bubugao，含随附资料）安装到当前项目；若已有同名技能，先停止并说明。
 ```
 
 ## 示例：个人书单是怎样讨论的

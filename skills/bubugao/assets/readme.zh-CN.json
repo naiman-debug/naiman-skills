@@ -167,7 +167,7 @@
     },
     {
       "type": "section",
-      "title": "让 Codex 帮你安装",
+      "title": "下载和安装",
       "blocks": [
         {
           "type": "paragraph",
@@ -175,7 +175,7 @@
         },
         {
           "type": "copy_field",
-          "value": "请先读取并遵循安装指南 https://github.com/naiman-debug/naiman-skills/blob/main/docs/安装与更新.md 。将 v0.1.0 发布包里包含上游资料与许可的完整 skills/bubugao 复制到当前练习项目的 .agents/skills/bubugao，复制前检查项目和实际用户目录同名，遇冲突立即停止，切勿复制根目录 AGENTS.md。安装后执行首次只读检查并报告加载路径与版本。",
+          "value": "请按照 https://github.com/naiman-debug/naiman-skills 的安装指南，将步步高（skills/bubugao，含随附资料）安装到当前项目；若已有同名技能，先停止并说明。",
           "label": "复制安装请求"
         }
       ]

@@ -42,12 +42,12 @@ Say directly to Codex:
 
 If your environment does not recognize the skill name, you can select it directly from your list of installed skills or type $bubugao to proceed. This skill requires actual file access permissions when writing records to files; if you are only discussing plans in read-only mode, you can proceed directly.
 
-## Let Codex Install It for You
+## Download and Install
 
 Copy the following text and send it to Codex:
 
 ```text
-Please first read and follow the installation guide https://github.com/naiman-debug/naiman-skills/blob/main/docs/安装与更新.md . Before copying, check for an existing same-named bubugao skill in both the project skill discovery directory and actual user-level skill discovery locations, and stop immediately if a conflict is found. Copy the complete skills/bubugao from the v0.1.0 release package (including upstream materials and license) into .agents/skills/bubugao in the current practice project, and do not copy the root AGENTS.md. After installation, perform an initial read-only check and report the loaded path and version.
+Follow the installation guide in https://github.com/naiman-debug/naiman-skills to install Bubugao (`skills/bubugao`, including its bundled materials) in the current project. If a same-named skill already exists, stop and explain.
 ```
 
 ## Example: How a Personal Reading List Is Discussed

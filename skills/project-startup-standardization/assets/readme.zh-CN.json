@@ -88,7 +88,7 @@
       "blocks": [
         {
           "type": "paragraph",
-          "text": "刚建空目录时，我们经常不知道各类文件该往哪里放，也拿不准何时开始规划结构。随着零散的想法、需求、参考资料和演示文件陆续加入，如果事先没有约定，AI介入后就很容易分不清该读取哪份资料、又该把新内容写到哪里。"
+          "text": "刚建新项目时，我们经常不知道各类文件该往哪里放，也拿不准何时开始规划结构。随着零散的想法、需求、参考资料和演示文件陆续加入，如果事先没有约定，AI介入后就很容易分不清该读取哪份资料、又该把新内容写到哪里。"
         },
         {
           "type": "paragraph",
@@ -162,7 +162,7 @@
     },
     {
       "type": "section",
-      "title": "安装与复用",
+      "title": "下载和安装",
       "blocks": [
         {
           "type": "paragraph",
@@ -171,7 +171,7 @@
         {
           "type": "copy_field",
           "label": "安装指令",
-          "value": "请先读取并遵循安装指南：https://github.com/naiman-debug/naiman-skills/blob/main/docs/安装与更新.md\n从指南指定的 v0.1.0 源码包中，将 skills/project-startup-standardization 完整目录及许可文件安装到当前练习项目的 .agents/skills/project-startup-standardization。若遇到同名规则请先暂停确认，不复制根目录 AGENTS。安装完成后报告实际入口路径与版本号，并先做一次只读首检。"
+          "value": "请按照 https://github.com/naiman-debug/naiman-skills 的安装指南，将项目建档（skills/project-startup-standardization）安装到当前项目；若已有同名技能，先停止并说明。"
         }
       ]
     },

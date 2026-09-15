@@ -44,10 +44,10 @@ A full closeout can include a local commit for the current task while strictly r
 - During execution, it does not move or delete files on its own initiative, never pushes to remote repositories, and excludes unrelated or unverified staged files.
 - After closeout, it reports the exact locations of documentation updates alongside the actual local commit hash or the reason why a commit was omitted.
 
-## Installation
+## Download and Install
 
 ```text
-Please first read the installation guide at https://github.com/naiman-debug/naiman-skills/blob/main/docs/%E5%AE%89%E8%A3%85%E4%B8%8E%E6%9B%B4%E6%96%B0.md , download the v0.1.0 source package from https://github.com/naiman-debug/naiman-skills/releases/tag/v0.1.0 , and install the three full directories project-day-closeout, project-directory-closeout, and project-git-closeout under .agents/skills/ in the practice project. If identical directory names exist, stop and compare first; retain all files and the root LICENSE, and do not copy root AGENTS.md. After installation, report the loaded paths and version, and perform an initial read-only check.
+Follow the installation guide in https://github.com/naiman-debug/naiman-skills to install Project Day Closeout and its required companions (`skills/project-day-closeout`, `skills/project-directory-closeout`, and `skills/project-git-closeout`) in the current project. If a same-named skill already exists, stop and explain.
 ```
 
 ## Related Resources

@@ -156,12 +156,12 @@
     },
     {
       "type": "section",
-      "title": "安装方法",
+      "title": "下载和安装",
       "blocks": [
         {
           "type": "copy_field",
           "label": "复制安装请求",
-          "value": "请先阅读安装指南 https://github.com/naiman-debug/naiman-skills/blob/main/docs/%E5%AE%89%E8%A3%85%E4%B8%8E%E6%9B%B4%E6%96%B0.md ，从 https://github.com/naiman-debug/naiman-skills/releases/tag/v0.1.0 下载 v0.1.0 源码包，将 project-day-closeout、project-directory-closeout 和 project-git-closeout 三个完整目录安装到练习项目的 .agents/skills/ 下。若有同名请先停止比对；保留全部文件与根目录 LICENSE，切勿复制根目录 AGENTS.md。安装后报告读取路径与版本，并做首次只读检查。"
+          "value": "请按照 https://github.com/naiman-debug/naiman-skills 的安装指南，将打完收工及其依赖（skills/project-day-closeout、skills/project-directory-closeout、skills/project-git-closeout）安装到当前项目；若已有同名技能，先停止并说明。"
         }
       ]
     },

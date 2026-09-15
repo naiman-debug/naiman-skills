@@ -15,7 +15,7 @@ Does not automatically move or delete existing files, does not automatically com
 
 ## Why This Skill Is Needed
 
-When starting with an empty directory, we often do not know where to put different types of files or when to start structuring the project. As scattered ideas, requirements, reference materials, and demo files accumulate over time without prior conventions, AI assistants can easily get confused about which documents to read and where to write new content.
+When starting a new project, we often do not know where to put different types of files or when to start structuring the project. As scattered ideas, requirements, reference materials, and demo files accumulate over time without prior conventions, AI assistants can easily get confused about which documents to read and where to write new content.
 
 This skill starts from existing materials, follows existing project naming conventions and rules, distinguishes active content from historical references, and clarifies directory purposes, project entry points, and key reference sources. This organization workflow leaves source materials intact while updating navigation to provide clear guidance on where to read and write. When new content is added later, users or AI can update existing descriptions only when entry points change—maintaining just the affected sections without starting over each time.
 
@@ -47,13 +47,12 @@ The skill writes necessary entry points, directory descriptions, or indexes only
 
 Organization does not automatically commit code or trigger releases. Completing organization only means clear directory entry points and record relationships have been established; it does not replace functional testing or business acceptance.
 
-## Installation and Reuse
+## Download and Install
 
 To reuse this skill across multiple computers or practice projects, you can directly copy the prompt:
 
 ```text
-Please first read and follow the installation guide: https://github.com/naiman-debug/naiman-skills/blob/main/docs/安装与更新.md
-From the v0.1.0 package specified in the guide, copy the complete skills/project-startup-standardization directory into .agents/skills/project-startup-standardization of the practice project. Keep the downloaded package and its root LICENSE outside skill discovery directories rather than inside the installed skill folder. Before copying, perform conflict checks per the guide and pause for confirmation if an installed skill with the same name already exists. Never copy the repository root AGENTS.md file. After installation, report the actual installed path and version number, and perform an initial read-only inspection.
+Follow the installation guide in https://github.com/naiman-debug/naiman-skills to install Project Startup Standardization (`skills/project-startup-standardization`) in the current project. If a same-named skill already exists, stop and explain.
 ```
 
 ## Related Documentation

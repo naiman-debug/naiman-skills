@@ -167,7 +167,7 @@
     },
     {
       "type": "section",
-      "title": "Let Codex Install It for You",
+      "title": "Download and Install",
       "blocks": [
         {
           "type": "paragraph",
@@ -175,7 +175,7 @@
         },
         {
           "type": "copy_field",
-          "value": "Please first read and follow the installation guide https://github.com/naiman-debug/naiman-skills/blob/main/docs/安装与更新.md . Before copying, check for an existing same-named bubugao skill in both the project skill discovery directory and actual user-level skill discovery locations, and stop immediately if a conflict is found. Copy the complete skills/bubugao from the v0.1.0 release package (including upstream materials and license) into .agents/skills/bubugao in the current practice project, and do not copy the root AGENTS.md. After installation, perform an initial read-only check and report the loaded path and version.",
+          "value": "Follow the installation guide in https://github.com/naiman-debug/naiman-skills to install Bubugao (`skills/bubugao`, including its bundled materials) in the current project. If a same-named skill already exists, stop and explain.",
           "label": "Copy installation prompt"
         }
       ]
